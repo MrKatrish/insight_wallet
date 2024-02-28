@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-black text-white py-6">
       <div className="container mx-auto flex justify-between items-center">
         {/* MIT License text */}
-        <p className="text-sm">&copy; 2022 Your Company. All rights reserved. MIT License.</p>
+        <p className="text-sm">&copy; 2024 Insight_Wallet . All rights reserved. MIT License.</p>
         
         {/* Social icons */}
         <div className="flex space-x-4">
