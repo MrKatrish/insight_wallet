@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 import Home from './pages/Home';
 import Income from './pages/Income';
 import Budget from './pages/Budget';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} /> 
             <Route path="/income" element={<Income updateUserData={updateUserData} />} /> 
             <Route path="/budget" element={<Budget userData={userData} />} /> 
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes> 
         </div>
         <footer className="bg-blue-500 text-white py-4 px-8">

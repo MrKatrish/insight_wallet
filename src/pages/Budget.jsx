@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Budget({ navigate, userData }) {
+function Budget({ userData }) {
+  const navigate = useNavigate();
   const [budget, setBudget] = useState({ rent: '', bills: '', groceries: '', savings: '', investments: '' });
 
   const handleChange = (e) => {
@@ -9,8 +11,8 @@ function Budget({ navigate, userData }) {
   };
 
   const handleSubmit = () => {
-    // logic for saving changes
-    navigate('dashboard'); 
+    // Logic for saving changes
+    navigate('/dashboard'); // Ensure this matches the path defined in App.jsx
   };
 
   return (
