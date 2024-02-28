@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import Home from './components/Home';
-import Income from './components/Income';
-import Budget from './components/Budget';
-import './App.css';
+import Home from './pages/Home';
+import Income from './pages/Income';
+import Budget from './pages/Budget';
+
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -31,5 +31,6 @@ function App() {
       </div>
     </Router>
   );
+}
 
 export default App;
