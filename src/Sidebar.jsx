@@ -1,36 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ProjectCard from '../components/ProjectCard';
-import { getProjects } from '../services/api';
 
-const Home = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const response = await getProjects();
-      setProjects(response.data);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-    }
-  };
-
+const Sidebar = () => {
   return (
-    <div className="container mx-auto">
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Recent Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {projects.map(project => (
-          <Link to={`/project/${project.id}`} key={project.id}>
-            <ProjectCard project={project} />
+    <div className="sidebar bg-black text-white">
+      <h2 className="text-center py-4">Navigation</h2>
+      <ul>
+        <li>
+          <Link to="/overview" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+            Overview
           </Link>
-        ))}
-      </div>
+        </li>
+        <li>
+          <Link to="/transactions" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+            Transactions
+          </Link>
+        </li>
+        <li>
+          <Link to="/reports" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+            Reports
+          </Link>
+        </li>
+        <li>
+          <Link to="/budgets" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+            Budgets
+          </Link>
+        </li>
+        <li>
+          <Link to="/goals" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+            Goals
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };
 
-export default Home;
+export default Sidebar;
+
