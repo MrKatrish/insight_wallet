@@ -1,4 +1,6 @@
-/* Poniżej znajdują się przykładowe style Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Typografia */
 .text-xl {
