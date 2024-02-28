@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function Budget({ userData }) {
-  const navigate = useNavigate();
+function Budget({ navigate, userData }) {
   const [budget, setBudget] = useState({ rent: '', bills: '', groceries: '', savings: '', investments: '' });
 
   const handleChange = (e) => {
@@ -20,6 +18,7 @@ function Budget({ userData }) {
       <h2 className="text-2xl font-bold mb-4">Your Expenditure Budget:</h2>
       <form>
         <div className="mb-4">
+            <label>Rent: <span> £</span>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="rent"
@@ -27,8 +26,10 @@ function Budget({ userData }) {
             onChange={handleChange}
             placeholder="Rent"
           />
+          </label>
         </div>
         <div className="mb-4">
+            <label>Bills: <span> £</span>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="bills"
@@ -36,8 +37,10 @@ function Budget({ userData }) {
             onChange={handleChange}
             placeholder="Bills"
           />
+          </label>
         </div>
         <div className="mb-4">
+            <label>Groceries: <span>£</span>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="groceries"
@@ -45,8 +48,10 @@ function Budget({ userData }) {
             onChange={handleChange}
             placeholder="Groceries"
           />
+          </label>
         </div>
         <div className="mb-4">
+            <label>Savings: <span>£</span>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="savings"
@@ -54,8 +59,10 @@ function Budget({ userData }) {
             onChange={handleChange}
             placeholder="Savings"
           />
+          </label>
         </div>
         <div className="mb-4">
+            <label>Investments: <span>£</span>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="investments"
@@ -63,6 +70,7 @@ function Budget({ userData }) {
             onChange={handleChange}
             placeholder="Investments"
           />
+          </label>
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
