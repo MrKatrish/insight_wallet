@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Home({ navigate }) {
+function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl font-bold mb-8">Insight Wallet</h1>
