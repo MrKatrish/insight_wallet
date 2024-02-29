@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserInput from '../components/UserInput';
+import FormTitle from './FormTitle';
+import FormButton from '../components/FormButton';
 
 function Budget({ userData }) {
   const navigate = useNavigate();
@@ -16,72 +19,16 @@ function Budget({ userData }) {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Your Expenditure Budget:</h2>
-      <form>
-        <div className="mb-4">
-            <label>Rent: <span> £</span>
-          <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="rent"
-            value={budget.rent}
-            onChange={handleChange}
-            placeholder="Rent"
-          />
-          </label>
-        </div>
-        <div className="mb-4">
-            <label>Bills: <span> £</span>
-          <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="bills"
-            value={budget.bills}
-            onChange={handleChange}
-            placeholder="Bills"
-          />
-          </label>
-        </div>
-        <div className="mb-4">
-            <label>Groceries: <span>£</span>
-          <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="groceries"
-            value={budget.groceries}
-            onChange={handleChange}
-            placeholder="Groceries"
-          />
-          </label>
-        </div>
-        <div className="mb-4">
-            <label>Savings: <span>£</span>
-          <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="savings"
-            value={budget.savings}
-            onChange={handleChange}
-            placeholder="Savings"
-          />
-          </label>
-        </div>
-        <div className="mb-4">
-            <label>Investments: <span>£</span>
-          <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="investments"
-            value={budget.investments}
-            onChange={handleChange}
-            placeholder="Investments"
-          />
-          </label>
-        </div>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button"
-          onClick={handleSubmit}
-        >
-          Next
-        </button>
-      </form>
+
+    <div>
+      <FormTitle title='Your Expenditure Budget:' />
+      <UserInput incomeTitle='Rent' value={budget.rent} handleChange={handleChange} />
+      <UserInput incomeTitle='Bills' value={budget.bills} handleChange={handleChange} />
+      <UserInput incomeTitle='Groceries' value={budget.groceries} handleChange={handleChange} />
+      <UserInput incomeTitle='Savings' value={budget.savings} handleChange={handleChange} />
+      <UserInput incomeTitle='Investments' value={budget.investments} handleChange={handleChange} />
+      <FormButton onClick={handleSubmit} title='Next' />
+
     </div>
   );
 }
