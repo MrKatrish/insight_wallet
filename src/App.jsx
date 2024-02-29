@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Income from './pages/Income';
 import Budget from './pages/Budget';
 import Dashboard from './pages/Dashboard';
-// import SavingsGoals from './pages/SavingsGoals';
+import Savingsgoals from './pages/Savingsgoals';
 import './App.css';
 
 
