@@ -1,8 +1,16 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import UserBadge from '../components/UserBadge';
+import profileImage from '../Assets/jonas-kakaroto.jpg'; // Import the profile picture
 
-const Dashboard = () => {
+
+
+const Dashboard = () => { 
+  const user = {
+    username: 'Jonas Kakaroto',
+    profilePicture: profileImage,
+  };
   return (
     <>
       <Sidebar />
@@ -11,7 +19,9 @@ const Dashboard = () => {
           {/* Content */}
           <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
           <p>Welcome to your dashboard!</p>
+          <UserBadge username={user.username} profilePicture={user.profilePicture} />
         </div>
+       
       </div>
       <Footer />
     </>
