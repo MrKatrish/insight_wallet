@@ -19,8 +19,7 @@ function Budget({ userData }) {
   };
 
   return (
-
-    <div>
+    <>
       <FormTitle title='Your Expenditure Budget:' />
       <UserInput incomeTitle='Rent' value={budget.rent} handleChange={handleChange} />
       <UserInput incomeTitle='Bills' value={budget.bills} handleChange={handleChange} />
@@ -28,8 +27,7 @@ function Budget({ userData }) {
       <UserInput incomeTitle='Savings' value={budget.savings} handleChange={handleChange} />
       <UserInput incomeTitle='Investments' value={budget.investments} handleChange={handleChange} />
       <FormButton onClick={handleSubmit} title='Next' />
-
-    </div>
+    </>
   );
 }
 
