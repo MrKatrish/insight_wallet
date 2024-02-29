@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Income.css';
+import UserInput from '../components/UserInput';
+import FormTitle from './FormTitle';
+import FormButton from '../components/FormButton';
 
 function Income({ updateUserData }) {
   const navigate = useNavigate();
@@ -39,6 +43,12 @@ function Income({ updateUserData }) {
 
   return (
     <>
+      <FormTitle title='Your Income:' />
+      <UserInput incomeTitle='Salary' value={income.salary} handleChange={handleChange}/>
+      <UserInput incomeTitle='Side Hustle' income={income.salary} handleChange={handleChange}/>
+      <UserInput incomeTitle='Other' income={income.salary} handleChange={handleChange}/>
+      <UserInput incomeTitle='+' income={income.salary} handleChange={handleChange}/>
+      <FormButton onClick={handleSubmit} title='Next' />
       <h1 className="mb-10">Your Income:</h1>
 
       <div className="flex p-2 justify-start">
