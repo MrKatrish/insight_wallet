@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserInput from '../components/UserInput';
-import FormTitle from '../components/FormTitle';
 
 function SavingsGoals({ updateUserData }) {
     const navigate = useNavigate();
