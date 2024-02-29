@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import Chart from '../components/ChartPie';
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
           <p>Welcome to your dashboard!</p>
         </div>
       </div>
+      <Chart/>
       <Footer />
     </>
   );
