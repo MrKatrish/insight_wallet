@@ -5,6 +5,8 @@ import Income from './pages/Income';
 import Budget from './pages/Budget';
 import Dashboard from './pages/Dashboard';
 import SavingsGoals from './pages/SavingsGoals';
+import './App.css';
+
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -17,6 +19,7 @@ function App() {
     <Router>
       <div className="App min-h-screen flex flex-col">
         <header className="bg-blue-500 text-white py-4 px-8">
+        <header className="bg-blue-500 text-white py-4 px-8 ">
           <h1 className="text-xl font-bold">Budget App</h1>
         </header>
         <div className="container mx-auto flex-grow py-8">
