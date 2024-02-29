@@ -1,0 +1,17 @@
+.incomeTitle {
+    background-color: white;
+    border-radius: 30px;
+}
+
+.greyedArea {
+    background-color: var(--grey);
+}
+
+.button {
+    margin-top: 20px;
+    background-color: var(--purple);
+    color: white;
+    padding: 12px 40px;
+    border-radius: 20px;
+    float: right;
+}

@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Income from './pages/Income';
 import Budget from './pages/Budget';
 import Dashboard from './pages/Dashboard';
+import SavingsGoals from './pages/SavingsGoals';
+import './App.css';
 
 
 function App() {
@@ -15,8 +17,9 @@ function App() {
 
   return (
     <Router>
-      <div className="App bg-gray-100 min-h-screen flex flex-col">
+      <div className="App min-h-screen flex flex-col">
         <header className="bg-blue-500 text-white py-4 px-8">
+        <header className="bg-blue-500 text-white py-4 px-8 ">
           <h1 className="text-xl font-bold">Budget App</h1>
         </header>
         <div className="container mx-auto flex-grow py-8">
