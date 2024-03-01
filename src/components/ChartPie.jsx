@@ -4,9 +4,6 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
-
-
 export const data = {
   labels: ['Rent', 'Bills', 'Groceries', 'Savings', 'Investments'],
   datasets: [
@@ -29,6 +26,7 @@ export const data = {
         'rgba(153, 102, 255, 1)',
        
       ],
+
       borderWidth: 1,
     },
   ],
