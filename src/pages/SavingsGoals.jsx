@@ -4,30 +4,35 @@ import UserInput from '../components/UserInput';
 
 function SavingsGoals({ updateUserData }) {
     const navigate = useNavigate();
-    const [SavingsGoals, setSavingsGoals] = useState({
+    const [savingsGoals, setSavingsGoals] = useState({
         Holiday: "",
         Car: "",
-        Other: "",
+        Laptop: "",
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setSavingsGoals({ ...SavingsGoals, [name]: value });
+        setSavingsGoals({ ...savingsGoals, [name]: value });
     };
 
     const handleSubmit = () => {
-        updateUserData({ SavingsGoals });
-        navigate("/dashboard");
+        if (typeof updateUserData === 'function') {
+            updateUserData({ SavingsGoals: savingsGoals });
+            navigate("/dashboard");
+        } else {
+            console.error("updateUserData is not a function");
+        }
     };
+    
 
     return (
         <div>
-            <FormTitle title='Your Savings Goals:' />
-            <p className="italics">Simply enter the item or goal name, set the target amount, and let Insight Wallet guide you towards realizing your aspirations..</p>
-            <UserInput incomeTitle='Holiday' value={saving.item1} handleChange={handleChange} />
-            <UserInput incomeTitle='Car' value={saving.item2} handleChange={handleChange} />
-            <UserInput incomeTitle='Laptop' value={saving.item3} handleChange={handleChange} />
-            <FormButton onclick={handleSubmit} title='Next' />
+            <h2>Your Savings Goals:</h2> 
+            <p className="italics">Simply enter the item or goal name, set the target amount, and let Insight Wallet guide you towards realizing your aspirations.</p>
+            <UserInput inputTitle='Holiday' value={savingsGoals.Holiday} handleChange={handleChange} /> 
+            <UserInput inputTitle='Car' value={savingsGoals.Car} handleChange={handleChange} /> 
+            <UserInput inputTitle='Laptop' value={savingsGoals.Laptop} handleChange={handleChange} /> 
+            <button onClick={handleSubmit}>Next</button> 
         </div>
     );
 }

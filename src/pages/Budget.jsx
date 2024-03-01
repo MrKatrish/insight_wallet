@@ -15,7 +15,7 @@ function Budget({ userData }) {
 
   const handleSubmit = () => {
     // Logic for saving changes
-    navigate('/dashboard'); // Ensure this matches the path defined in App.jsx
+    navigate('/savingsgoals'); // Ensure this matches the path defined in App.jsx
   };
 
   return (
