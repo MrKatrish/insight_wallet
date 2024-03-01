@@ -3,7 +3,9 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import UserBadge from '../components/UserBadge';
 import profileImage from '../Assets/jonas-kakaroto.jpg'; // Import the profile picture
-
+import Chart from '../components/ChartPie';
+import CurrencyConverter from '../components/CurrencyExchanger';
+import BarChart from '../components/BarChart';
 
 
 const Dashboard = () => { 
@@ -23,6 +25,10 @@ const Dashboard = () => {
         </div>
        
       </div>
+      <Chart />
+      <CurrencyConverter /> {/* Include CurrencyConverter component */}
+      <Chart/>
+      <BarChart/>
       <Footer />
     </>
   );
