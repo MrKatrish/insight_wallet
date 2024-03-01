@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Chart from '../components/ChartPie';
+import CurrencyConverter from '../components/CurrencyExchanger';
 
 const Dashboard = () => {
   return (
@@ -14,7 +15,8 @@ const Dashboard = () => {
           <p>Welcome to your dashboard!</p>
         </div>
       </div>
-      <Chart/>
+      <Chart />
+      <CurrencyConverter /> {/* Include CurrencyConverter component */}
       <Footer />
     </>
   );
