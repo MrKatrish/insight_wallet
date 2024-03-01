@@ -3,6 +3,8 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Chart from '../components/ChartPie';
 import CurrencyConverter from '../components/CurrencyExchanger';
+import BarChart from '../components/BarChart';
+
 
 const Dashboard = () => {
   return (
@@ -17,6 +19,8 @@ const Dashboard = () => {
       </div>
       <Chart />
       <CurrencyConverter /> {/* Include CurrencyConverter component */}
+      <Chart/>
+      <BarChart/>
       <Footer />
     </>
   );

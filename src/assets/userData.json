@@ -1,11 +1,14 @@
 {
     "name": "Tomasz",
-    "salary": 10000,
+    "salary": 4000,
     "sideHustles": 100,
     "otherIncome": 200,
     "rent": 300,
     "bills": 100,
     "groceries": 100,
     "savings": 100,
-    "investments": 100
+    "investments": 100,
+    "holidays": 250,
+    "car": 3000,
+    "laptop": 390
 }
