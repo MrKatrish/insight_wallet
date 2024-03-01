@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Chart from '../components/ChartPie';
+import BarChart from '../components/BarChart';
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
         </div>
       </div>
       <Chart/>
+      <BarChart/>
       <Footer />
     </>
   );
