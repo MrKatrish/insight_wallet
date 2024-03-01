@@ -5,7 +5,7 @@ import FormTitle from './FormTitle';
 import FormButton from '../components/FormButton';
 import AddIncome from '../components/AddIncome';
 
-function Budget({ userData }) {
+function Budget({ updateUserData }) {
   const navigate = useNavigate();
 
   const [rentInput, setRentInput] = useState(0);
@@ -14,7 +14,7 @@ function Budget({ userData }) {
   const [savingsInput, setSavingInput] = useState(0);
   const [investmentsInput, setInvestmentsInput] = useState(0);
   const [additionalBudgets, setAdditionalBudgets] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [totalBudget, setTotalBudget] = useState(0);
 
   const handleMainInputChange = (name, e) => {
     const { value } = e.target;
@@ -50,8 +50,8 @@ function Budget({ userData }) {
     .map((e) => e.amount)
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
 
-    setTotal(totalSum);
-  }, [rentInput, billsInput, groceriesInput, savingsInput, investmentsInput]);
+    setTotalBudget(totalSum);
+  }, [rentInput, billsInput, groceriesInput, savingsInput, investmentsInput, additionalBudgets]);
 
    const handleAddBudget = () => {
     setAdditionalBudgets([
@@ -107,7 +107,7 @@ function Budget({ userData }) {
 
       <div className='flex p-2'>
             <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
-            <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {total.toFixed(2)}</label>
+            <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalBudget.toFixed(2)}</label>
       </div>
 
     </>
