@@ -65,7 +65,7 @@ function SavingsGoals({ updateUserData }) {
         };
     
         updateUserData({ savings: savingsData });
-        navigate('/lasttransactionsform');
+        navigate('/dashboard');
       };
     
       return (
