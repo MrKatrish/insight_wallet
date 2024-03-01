@@ -10,7 +10,7 @@ function SavingsGoals({ updateUserData }) {
 
     const [holidayInput, setHolidayInput] = useState(0);
     const [houseInput, setHouseInput] = useState(0);
-    const [carInput, setOtherInput] = useState(0);
+    const [carInput, setCarInput] = useState(0);
     const [additionalSavings, setAdditionalSavings] = useState([]);
 
     const handleMainInputChange = (name, e) => {
@@ -29,7 +29,7 @@ function SavingsGoals({ updateUserData }) {
             setHouseInput(valueNumber);
             break;
           case 'Other':
-            setOtherInput(valueNumber);
+            setCarInput(valueNumber);
             break;
           default:
             break;
@@ -65,7 +65,7 @@ function SavingsGoals({ updateUserData }) {
         };
     
         updateUserData({ savings: savingsData });
-        navigate('/dashboard'); //need to add path in App.jsx as well I'm not sure about data is saving/changing/updating
+        navigate("/dashboard"); //need to add path in App.jsx as well I'm not sure about data is saving/changing/updating
       };
 
     
