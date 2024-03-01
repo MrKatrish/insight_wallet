@@ -19,7 +19,7 @@ function Income({ updateUserData }) {
     let valueNumber = parseFloat(value);
 
     console.log(valueNumber)
-    if (valueNumber == NaN) {
+    if (isNaN(valueNumber)) {
       valueNumber = 0;
     }
 
@@ -59,7 +59,11 @@ function Income({ updateUserData }) {
 
   const handleAdditionalIncomeChange = (index, e) => {
     const { value } = e.target;
-    const valueNumber = parseFloat(value);
+    let valueNumber = parseFloat(value);
+
+    if(isNaN(valueNumber)) {
+      valueNumber = 0;
+    }
     
     setAdditionalIncomes(
       (previousAdditionalIncome) => previousAdditionalIncome.map((obj, i) => i === index ? {...obj, amount: valueNumber} : obj) 
