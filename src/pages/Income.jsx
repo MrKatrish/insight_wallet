@@ -104,8 +104,8 @@ function Income({ updateUserData }) {
     </div>
 
       <div className='flex p-2'>
-            <label className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 bg-white rounded-3xl">Total</label>
-            <label className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 bg-white rounded-3xl">£ {total.toFixed(2)}</label>
+            <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl bg-customGrey">Total</label>
+            <label className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl bg-customGrey">£ {total.toFixed(2)}</label>
       </div>
     </>
   );
