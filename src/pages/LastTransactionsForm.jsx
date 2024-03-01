@@ -11,7 +11,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="mortgage" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/house.gif"
+              src="public/icons/house.gif"
               alt="Mortgage Icon"
             />
             Mortgage:
@@ -27,7 +27,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="car_credit" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/supercar.gif"
+              src="public/icons/supercar.gif"
               alt="Car Credit Icon"
             />
             Car Credit:
@@ -43,7 +43,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="shopping" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/shopping-bag.gif"
+              src="public/icons/shopping-bag.gif"
               alt="Shopping"
             />
             Shopping:
@@ -59,7 +59,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="holiday" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/holiday.gif"
+              src="public/icons/holiday.gif"
               alt="Holiday Icon"
             />
             Holiday:
@@ -75,7 +75,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="public_transport" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/bus.gif"
+              src="public/icons/bus.gif"
               alt="Public Transport Icon"
             />
             Public Transport:
@@ -91,7 +91,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="wifi" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/wifi.gif"
+              src="public/icons/wifi.gif"
               alt="WiFi Icon"
             />
             WiFi:
@@ -107,7 +107,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="fuel" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/eco-fuel.gif"
+              src="public/icons/eco-fuel.gif"
               alt="Fuel Icon"
             />
             Fuel:
@@ -123,7 +123,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="gas" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/power.gif"
+              src="public/icons/power.gif"
               alt="Gas Icon"
             />
             Gas:
@@ -139,7 +139,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="electricity" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/light-bulb.gif"
+              src="public/icons/light-bulb.gif"
               alt="Electricity Icon"
             />
             Electricity:
@@ -155,7 +155,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="mobile_phone" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/touch-screen.gif"
+              src="public/icons/touch-screen.gif"
               alt="Mobile Phone Icon"
             />
             Mobile Phone:
@@ -171,7 +171,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="food_delivery" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/food-delivery.gif"
+              src="public/icons/food-delivery.gif"
               alt="Food Delivery Icon"
             />
             Food Delivery:
@@ -187,7 +187,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="restaurant" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/restaurant.gif"
+              src="public/icons/restaurant.gif"
               alt="Restaurant Icon"
             />
             Restaurant:
@@ -203,7 +203,7 @@ const LastTransactionsForm = () => {
           <label htmlFor="other" className="text-cyan-500">
             <img
               className="icon w-6 h-6"
-              src="C:/Users/vivaa/Downloads/fireworks.gif"
+              src="public/icons/fireworks.gif"
               alt="Other Icon"
             />
             Other:
