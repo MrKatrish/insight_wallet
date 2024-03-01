@@ -47,10 +47,6 @@ function Income({ updateUserData }) {
   }, [salaryInput, sideHustleInput, otherInput, additionalIncomes]);
 
    const handleAddIncomes = () => {
-    // setIncome(prevIncome => ({
-    //   ...prevIncome,
-    //   additionalIncome: [...prevIncome.additionalIncome, { title: '', amount: '' }]
-    // }));
     setAdditionalIncomes([
       ...additionalIncomes,  { title: '', amount: 0 }
     ])
