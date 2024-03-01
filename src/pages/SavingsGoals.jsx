@@ -65,8 +65,9 @@ function SavingsGoals({ updateUserData }) {
         };
     
         updateUserData({ savings: savingsData });
-        navigate('/dashboard');
+        navigate('/dashboard'); //need to add path in App.jsx as well I'm not sure about data is saving/changing/updating
       };
+
     
       return (
         <>
