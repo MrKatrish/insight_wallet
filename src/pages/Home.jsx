@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../components/FormButton';
+import FormTitle from './FormTitle';
 
 function Home() {
   const navigate = useNavigate();
@@ -58,8 +59,9 @@ function Home() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-8">Insight Wallet</h1>
-      <div className="block max-w-sm">
+      <FormTitle title='Insight Wallet' />
+      <p className='italic text-gray-400 mb-10 mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
+      <div className="block max-w-sm mx-auto text-center">
         {/* Login Form */}
           <form onSubmit={handleLogin}>
               {/* Username Input */}
@@ -87,6 +89,7 @@ function Home() {
             {/* Login Button */}
             <FormButton title='Login' />
           </form>
+
         {/* Sign Up Form */}
           <form onSubmit={handleSignUp}>
               {/* New Username Input */}
