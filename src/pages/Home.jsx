@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../components/FormButton';
 import FormTitle from './FormTitle';
+import SignUpInput from '../components/SignUpInput';
 
 function Home() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ function Home() {
   return (
     <>
       <FormTitle title='Insight Wallet' />
-      <p className='italic text-gray-400 mb-10 mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
+      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
       <div className="block max-w-sm mx-auto text-center">
         {/* Login Form */}
           <form onSubmit={handleLogin}>
@@ -92,34 +93,9 @@ function Home() {
 
         {/* Sign Up Form */}
           <form onSubmit={handleSignUp}>
-              {/* New Username Input */}
-              <input
-                className="rounded-3xl border-0 w-full my-2 py-3 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placehoder:text-gray-400"
-                id="newUsername"
-                type="text"
-                placeholder="New Username"
-                value={newUsername}
-                onChange={(e) => setNewUsername(e.target.value)}
-              />
-              {/* New Password Input */}
-              <input
-                className="rounded-3xl border-0 w-full my-2 py-3 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placehoder:text-gray-400"
-                id="newPassword"
-                type="password"
-                placeholder="New Password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-              />
-              {/* Email Input */}
-              <input
-                className="rounded-3xl border-0 w-full my-2 py-3 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placehoder:text-gray-400"
-                id="newEmail"
-                type="email" 
-                placeholder="Your Email Address"
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-              />
-            {/* Sign Up Button */}
+            <SignUpInput id='newUsername' type='text' placeholder='New Username' value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
+            <SignUpInput id='newPassword' type='password' placeholder='New Password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+            <SignUpInput id='newEmail' type='email' placeholder='Your Email Address' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
             <FormButton title='Sign Up' />
           </form>
         </div>
