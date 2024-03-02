@@ -81,27 +81,26 @@ function Income({ updateUserData }) {
     <>
       <FormTitle title='Your Income:' />
       <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
+        <UserInput incomeTitle='Salary' handleChange={handleMainInputChange}/>
+        <UserInput incomeTitle='Side Hustle' handleChange={handleMainInputChange}/>
+        <UserInput incomeTitle='Other' handleChange={handleMainInputChange}/>
 
-      <UserInput incomeTitle='Salary' handleChange={handleMainInputChange}/>
-      <UserInput incomeTitle='Side Hustle' handleChange={handleMainInputChange}/>
-      <UserInput incomeTitle='Other' handleChange={handleMainInputChange}/>
+        {additionalIncomes.map((item, index) => (
+          <div key={index} className="flex p-2 justify-center">
+            <AddIncome index={index} onChange={handleAdditionalIncomeChange}/>
+          </div>
+        ))}
 
-      {additionalIncomes.map((item, index) => (
-        <div key={index} className="flex p-2 justify-center">
-          <AddIncome index={index} onChange={handleAdditionalIncomeChange}/>
+        <div className='flex flex-row justify-center'>
+          <FormButton onClick={handleAddIncomes} title='Add new income' />
+          <FormButton onClick={handleSubmit} title='Next' />
         </div>
-      ))}
-
-      <div className='flex flex-row justify-center'>
-        <FormButton onClick={handleAddIncomes} title='Add new income' />
-        <FormButton onClick={handleSubmit} title='Next' />
-      </div>
 
 
-      <div className='flex p-2 justify-center'>
-            <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
-            <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalIncome.toFixed(2)}</label>
-      </div>
+        <div className='flex p-2 justify-center'>
+              <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
+              <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalIncome.toFixed(2)}</label>
+        </div>
     </>
   );
 }
