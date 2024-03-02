@@ -88,6 +88,8 @@ function Budget({ updateUserData }) {
   return (
     <>
       <FormTitle title='Your Expenditure Budget:' />
+      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Allocate funds to different categories such as housing, utilities, entertainment, and more. Simply input your estimated spending for each category, and our finance tracker will help you stay on top of your financial goals.</p>
+
       <UserInput incomeTitle='Rent' handleChange={handleMainInputChange} />
       <UserInput incomeTitle='Bills' handleChange={handleMainInputChange} />
       <UserInput incomeTitle='Groceries' handleChange={handleMainInputChange} />
@@ -95,7 +97,7 @@ function Budget({ updateUserData }) {
       <UserInput incomeTitle='Investments' handleChange={handleMainInputChange} />
 
       {additionalBudgets.map((item, index) => (
-        <div key={index} className="flex p-2 justify-start">
+        <div key={index} className="flex p-2 justify-center">
           <AddIncome index={index} onChange={handleAdditionalBudgetChange}/>
         </div>
       ))}
@@ -105,7 +107,7 @@ function Budget({ updateUserData }) {
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
-      <div className='flex p-2'>
+      <div className='flex p-2 justify-center'>
             <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
             <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalBudget.toFixed(2)}</label>
       </div>

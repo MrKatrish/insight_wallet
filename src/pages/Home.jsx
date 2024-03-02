@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormButton from '../components/FormButton';
+import FormTitle from './FormTitle';
+import SignUpInput from '../components/SignUpInput';
 
 function Home() {
   const navigate = useNavigate();
@@ -56,20 +59,15 @@ function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-8">Insight Wallet</h1>
-      <div className="flex space-x-4">
+    <>
+      <FormTitle title='Insight Wallet' />
+      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
+      <div className="block max-w-sm mx-auto text-center">
         {/* Login Form */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4">Login</h2>
           <form onSubmit={handleLogin}>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2" htmlFor="username">
-                Username
-              </label>
               {/* Username Input */}
               <input
-                className={`appearance-none border ${error.username ? 'border-red-500' : 'border-gray-300'} rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+                className={`rounded-3xl border-0 w-full my-2 py-3 pl-7 pr-20 ring-1 ring-inset ${error.username ? 'ring-red-500' : 'ring-gray-300'} placehoder:text-gray-400`}
                 id="username"
                 type="text"
                 placeholder="Username"
@@ -78,14 +76,9 @@ function Home() {
               />
               {/* Error Message for Username */}
               {error.username && <p className="text-red-500 text-xs italic">Please enter your username.</p>}
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-                Password
-              </label>
               {/* Password Input */}
               <input
-                className={`appearance-none border ${error.password ? 'border-red-500' : 'border-gray-300'} rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline`}
+                className={`rounded-3xl border-0 w-full my-2 py-3 pl-7 pr-20 ring-1 ring-inset ${error.password ? 'ring-red-500' : 'ring-gray-300'} placehoder:text-gray-400`}
                 id="password"
                 type="password"
                 placeholder="Password"
@@ -94,73 +87,19 @@ function Home() {
               />
               {/* Error Message for Password */}
               {error.password && <p className="text-red-500 text-xs italic">Please enter your password.</p>}
-            </div>
             {/* Login Button */}
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Login
-            </button>
+            <FormButton title='Login' />
           </form>
-        </div>
+
         {/* Sign Up Form */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4">Sign Up</h2>
           <form onSubmit={handleSignUp}>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2" htmlFor="newUsername">
-                New Username
-              </label>
-              {/* New Username Input */}
-              <input
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="newUsername"
-                type="text"
-                placeholder="New Username"
-                value={newUsername}
-                onChange={(e) => setNewUsername(e.target.value)}
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2" htmlFor="newPassword">
-                New Password
-              </label>
-              {/* New Password Input */}
-              <input
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="newPassword"
-                type="password"
-                placeholder="New Password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2" htmlFor="newEmail">
-                Your Email
-              </label>
-              {/* Email Input */}
-              <input
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="newEmail"
-                type="email" 
-                placeholder="Your Email Address"
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-              />
-            </div>
-            {/* Sign Up Button */}
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Sign Up
-            </button>
+            <SignUpInput id='newUsername' type='text' placeholder='New Username' value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
+            <SignUpInput id='newPassword' type='password' placeholder='New Password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+            <SignUpInput id='newEmail' type='email' placeholder='Your Email Address' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+            <FormButton title='Sign Up' />
           </form>
         </div>
-      </div>
-    </div>
+    </>
   );
 }
 
