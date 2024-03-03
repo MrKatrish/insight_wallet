@@ -73,7 +73,7 @@ function Budget({ updateUserData }) {
 
       {budgets.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
-            <UserInput budgetTitle={item.title} budgetAmount={item.amount} id={item.id} handleChange={handleBudgetChange} handleBudgetTitleChange={handleBudgetTitleChange} handleDelete={handleDelete}/>
+            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleBudgetChange} handleLabelTitleChange={handleBudgetTitleChange} handleDelete={handleDelete}/>
         </div>
       ))}
 

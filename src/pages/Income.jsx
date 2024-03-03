@@ -71,7 +71,7 @@ function Income({ updateUserData }) {
         {incomes.map((item, index) => { 
           return (
           <div key={index} className="flex p-2 justify-center">
-            <UserInput incomeTitle={item.title} incomeAmount={item.amount} id={item.id} handleChange={handleIncomeChange} handleIncomeTitleChange={handleIncomeTitleChange} handleDelete={handleDelete}/>
+            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleIncomeChange} handleLabelTitleChange={handleIncomeTitleChange} handleDelete={handleDelete}/>
           </div>
         )})}
 
