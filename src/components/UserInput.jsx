@@ -11,6 +11,7 @@ export default function UserInput({incomeTitle, handleChange}) {
             </div>
             <input type="number" className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" placeholder="0.00" onChange={(e) => handleChange(incomeTitle,e)} />
             </div>
+            <button className="text-lg font-medium border-0 px-5 mx-5 ring-1 ring-inset ring-gray-300 rounded-3xl bg-white text-red-400">X</button>
         </div>
         </>
     );
