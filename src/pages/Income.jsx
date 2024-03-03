@@ -24,7 +24,7 @@ function Income({ updateUserData }) {
   }, [incomes]);
 
   const handleAddIncomes = () => {
-   setCounter(p => p + 1)
+   setCounter(p => p + 1);
 
     setIncomes(
       (previous) => [...previous, { id: counter, title: '', amount: 0 }] 
