@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from './FormTitle';
 import FormButton from '../components/FormButton';
+import AddNewButton from '../components/AddNewButton';
+
 
 function SavingsGoals({ updateUserData }) {
     const navigate = useNavigate();
@@ -43,12 +45,12 @@ function SavingsGoals({ updateUserData }) {
             
             
             <div className='flex flex-row justify-center'>
-            <FormButton onClick={handleChange} title='+ Add new' />
+            <AddNewButton />
             <p>Total Savings: ${totalAmount.toFixed(2)}</p>
             </div>
             
 
-            <FormButton onClick={handleAddSavings} title='Next' />
+            <FormButton onClick={handleSubmit} title='Next' />
         </div>
     );
 }
