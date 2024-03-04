@@ -49,8 +49,7 @@ function Budget({ updateUserData }) {
 
   const handleSubmit = () => {
 
-    updateUserData({ budget: budgetData });
-    navigate('/savings-goals');
+    navigate('/savingsgoals');
   };
 
   const handleBudgetTitleChange = (id, e) => {
