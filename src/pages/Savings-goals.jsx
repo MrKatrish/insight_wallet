@@ -27,6 +27,12 @@ function SavingsGoals({ updateUserData }) {
         navigate('/dashboard');
     };
 
+    const handleAddSavings = () => {
+        setAdditionalSavings([
+        ...additionalSavings,  { title: '', amount: 0 }
+        ])
+    };
+
     return (
         <div>
             <FormTitle title='Your Savings Goals:' />
@@ -34,10 +40,15 @@ function SavingsGoals({ updateUserData }) {
             <UserInput incomeTitle='Holiday' value={SavingsGoals.Holiday} handleChange={handleChange} />
             <UserInput incomeTitle='Car' value={SavingsGoals.Car} handleChange={handleChange} />
             <UserInput incomeTitle='Laptop' value={SavingsGoals.Laptop} handleChange={handleChange} />
-
+            
+            
+            <div className='flex flex-row justify-center'>
+            <FormButton onClick={handleChange} title='+ Add new' />
             <p>Total Savings: ${totalAmount.toFixed(2)}</p>
+            </div>
+            
 
-            <FormButton onClick={handleSubmit} title='Next' />
+            <FormButton onClick={handleAddSavings} title='Next' />
         </div>
     );
 }
