@@ -50,7 +50,7 @@ Insight Wallet is a personal finance management web application designed to empo
 - [Installation](#installation)
 - [Usage](#usage)
 - [Built With](#tests)
-- [Screenshots/Links] (#screenshots/links)
+- [Screenshots and Links](#screenshots and links)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Credits](#tests)
