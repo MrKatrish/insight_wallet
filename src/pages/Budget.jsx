@@ -37,12 +37,12 @@ function Budget() {
     }));
   };
 
-  const saveBudget = () => {
-    const username = localStorage.getItem('currentUsername');
-    if (username) {
-      const userData = JSON.parse(localStorage.getItem(username)) || {};
+  const handleSubmit = () => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
       userData.budgets = budgets;
-      localStorage.setItem(username, JSON.stringify(userData));
+      localStorage.setItem(currentUser, JSON.stringify(userData));
     }
     navigate('/savingsgoals');
   };
@@ -67,20 +67,20 @@ function Budget() {
 
       {budgets.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
-        <UserInput
-          labelTitle={item.title}
-          labelAmount={item.amount}
-          id={item.id}
-          handleChange={handleBudgetChange}
-          handleLabelTitleChange={handleBudgetTitleChange}
-          handleDelete={handleDelete}
-        />
+          <UserInput
+            labelTitle={item.title}
+            labelAmount={item.amount}
+            id={item.id}
+            handleChange={handleBudgetChange}
+            handleLabelTitleChange={handleBudgetTitleChange}
+            handleDelete={handleDelete}
+          />
         </div>
       ))}
 
       <div className='flex flex-row justify-center'>
         <FormButton onClick={handleAddBudgets} title='Add new budget item' />
-        <FormButton onClick={saveBudget} title='Next' />
+        <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
       <div className='flex p-2 justify-center'>

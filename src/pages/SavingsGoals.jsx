@@ -37,6 +37,12 @@ function SavingsGoals() {
   };
 
   const handleSubmit = () => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
+      userData.savingsGoals = savingsGoals;
+      localStorage.setItem(currentUser, JSON.stringify(userData));
+    }
     navigate('/dashboard');
   };
 
