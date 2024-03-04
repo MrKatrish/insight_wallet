@@ -85,12 +85,31 @@ npm run build
 
 ## Usage
 
-## Features
+1. Navigate Through the App:
 
-- Income Tracking: Easily input and manage various income sources to get a comprehensive overview of your financial inflows.
-- Expenditure Budgeting: Allocate funds to different expense categories, from housing to entertainment, and stay on top of your budget goals.
-- Savings Goals: Set and monitor savings goals for specific items or aspirations, guiding you towards achieving your financial objectives.
-- Transaction Tracking: Keep a detailed record of your transactions and analyze your actual spend versus budgeted amounts.
+- Home: The landing page with a brief introduction to Insight Wallet.
+- Income: Input your income streams and details.
+- Budget: Budget your expenditures and allocate funds to different categories.
+- Savings Goals: Set and track your savings goals for various items or objectives.
+- Dashboard: View an overview of your financial status and transactions.
+
+2. Input Income:
+
+- On the Income page, enter your various income sources and amounts.
+- Click the "Next" button to proceed to the budgeting section.
+- Budget Your Expenditure:
+
+3. Allocate funds to different categories such as rent, bills, groceries, savings, and investments.
+- Add new budget items as needed.
+- The total budget amount is displayed at the bottom.
+
+4. Set Savings Goals:
+- On the Savings Goals page, enter items or goals you're saving for and their target amounts.
+- Click the "Next" button to proceed.
+
+5. View Dashboard:
+- On the Dashboard, get an overview of your financial situation, including your savings, budget status, and recent transactions.
+
 
 ## Built With
 
@@ -98,11 +117,11 @@ npm run build
 
 ## Contributors
 
-- Paulina Siwko
-- Nirmean Sawi
-- Tomasz Jasinski
-- Michal Paleczny
-- Pawel
+1. [Paulina Siwko](https://github.com/paulinasiwko)
+2. [Nirmean Sawi](https://github.com/Nirmean)
+3. [Tomasz Jasinski](https://github.com/TomixJasina)
+4. [Michal Paleczny](https://github.com/MrKatrish)
+5. Pawel
 - Aijamal
 - Divine
 
