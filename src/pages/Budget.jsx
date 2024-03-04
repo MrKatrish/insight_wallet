@@ -71,18 +71,22 @@ function Budget({ updateUserData }) {
       <FormTitle title='Your Expenditure Budget:' />
       <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Allocate funds to different categories such as housing, utilities, entertainment, and more. Simply input your estimated spending for each category, and our finance tracker will help you stay on top of your financial goals.</p>
 
-      {budgets.map((item, index) => (
-        <div key={index} className="flex p-2 justify-center">
-            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleBudgetChange} handleLabelTitleChange={handleBudgetTitleChange} handleDelete={handleDelete}/>
-        </div>
-      ))}
+      <div>
+        {budgets.map((item, index) => (
+          <div key={index} className="flex p-2 justify-center">
+              <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleBudgetChange} handleLabelTitleChange={handleBudgetTitleChange} handleDelete={handleDelete}/>
+          </div>
+        ))}
 
-      <div className='flex flex-row justify-center'>
-        <FormButton onClick={handleAddBudgets} title='Add new budget item' />
-        <FormButton onClick={handleSubmit} title='Next' />
+        <div className='flex flex-row justify-center'>
+          <FormButton className='h-8 w-8 p-4 m-4 rounded-full font-bold' onClick={handleAddBudgets} title='+'/>
+        </div>
+
+        <TotalSum label="Total" total={totalBudget} />
+
       </div>
 
-      <TotalSum label="Total" total={totalBudget} />
+      <FormButton className='justify-left' onClick={handleSubmit} title='Next' />
 
     </>
   );
