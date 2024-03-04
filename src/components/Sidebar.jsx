@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Sidebar = () => {
   return (
-    <div className="sidebar bg-black text-white">
+    <div className="sidebar bg-black text-white h-full w-64 fixed top-0 left-0">
       <h2 className="text-center py-4">Navigation</h2>
       <ul>
         <li>
