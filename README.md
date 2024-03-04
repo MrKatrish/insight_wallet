@@ -49,7 +49,6 @@ Insight Wallet is a personal finance management web application designed to empo
 - [Requirements](#installation)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
 - [Built With](#tests)
 - [Screenshots/Links] (#screenshots/links)
 - [Contributing](#contributing)
@@ -113,6 +112,18 @@ This will launch the development server. Open your browser and visit http://loca
 
 ## Built With
 
+- ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+  - A JavaScript library for building user interfaces.
+
+- ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+  - The programming language used to create dynamic content on your website.
+
+- ![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  - A utility-first CSS framework for rapidly building modern designs.
+
+- ![jQuery](https://img.shields.io/badge/-jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+  - A fast, small, and feature-rich JavaScript library.
+
 ## Screenshots/ Links
 
 ## Contributors
@@ -121,9 +132,10 @@ This will launch the development server. Open your browser and visit http://loca
 2. [Nirmean Sawi](https://github.com/Nirmean)
 3. [Tomasz Jasinski](https://github.com/TomixJasina)
 4. [Michal Paleczny](https://github.com/MrKatrish)
-5. Pawel
-- Aijamal
-- Divine
+5. [Aijamal Jusupova](https://github.com/Aijus2022)
+6. [Divine](https://github.com/divine2192)
+7. [Pawel Narkhashel](https://github.com/Narkhashel)
+
 
 ## Tests
 
