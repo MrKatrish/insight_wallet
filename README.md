@@ -67,7 +67,8 @@ Make sure you have the following tools installed on your machine:
 ## Installation
 
 **Clone the repository:**
-git clone https://github.com/yourusername/yourproject.git
+git clone 
+    - https://github.com/yourusername/yourproject.git
 
 1. Navigate to the project directory:
     - cd yourproject
@@ -81,7 +82,7 @@ git clone https://github.com/yourusername/yourproject.git
 This will launch the development server. Open your browser and visit http://localhost:3000 to view the application.
 
 **To build the project for production, use:**
-npm run build
+    - npm run build
 
 ## Usage
 
