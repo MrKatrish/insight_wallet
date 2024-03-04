@@ -67,8 +67,7 @@ Make sure you have the following tools installed on your machine:
 ## Installation
 
 **Clone the repository:**
-git clone 
-    - https://github.com/yourusername/yourproject.git
+git clone https://github.com/yourusername/yourproject.git
 
 1. Navigate to the project directory:
     - cd yourproject
