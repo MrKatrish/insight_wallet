@@ -16,7 +16,7 @@ function SavingsGoals({ updateUserData }) {
 
     const [totalAmount, setTotalAmount] = useState(0);
 
-    const handleChange = (e) => {
+    const handleChange = (title, e) => {
         const { name, value } = e.target;
         setSavingsGoals({ ...SavingsGoals, [name]: value });
 
@@ -43,11 +43,11 @@ function SavingsGoals({ updateUserData }) {
             <UserInput incomeTitle='Car' value={SavingsGoals.Car} handleChange={handleChange} />
             <UserInput incomeTitle='Laptop' value={SavingsGoals.Laptop} handleChange={handleChange} />
             
+            <AddNewButton onClick={handleAddSavings} />
+
             
-            <div className='flex-col justify-center mt-4'>
-            <AddNewButton className='justify-center'/>
-            <p>Total Savings: ${totalAmount.toFixed(2)}</p>
-            </div>
+        
+            <p className="text-3xl font-bold items-center">Total Savings: ${totalAmount.toFixed(2)}</p>
             
 
             <FormButton onClick={handleSubmit} title='Next' />
