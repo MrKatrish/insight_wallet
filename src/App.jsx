@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Income from './pages/Income';
 import Budget from './pages/Budget';
 import Dashboard from './pages/Dashboard';
-import Savingsgoals from './pages/Savingsgoals';
+import SavingsGoals from './pages/Savings-goals';
 import './App.css';
 
 function App() {
@@ -24,10 +24,9 @@ function App() {
           <Routes> 
             <Route path="/" element={<Home />} /> 
             <Route path="/income" element={<Income updateUserData={updateUserData} />} /> 
-            <Route path="/budget" element={<Budget userData={userData} />} /> 
+            <Route path="/budget" element={<Budget updateUserData={updateUserData}/>} /> 
+            <Route path="/savings-goals" element={<SavingsGoals />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* Dodajemy ścieżkę dla Savingsgoals */}
-            <Route path="/savingsgoals" element={<Savingsgoals />} />
           </Routes> 
         {/* </div> */}
         {/* <footer className="bg-blue-500 text-white py-4 px-8">

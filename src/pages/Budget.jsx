@@ -82,7 +82,7 @@ function Budget({ updateUserData }) {
     };
 
     updateUserData({ budget: budgetData });
-    navigate('/savingsgoals');
+    navigate('/savings-goals');
   };
 
   return (
