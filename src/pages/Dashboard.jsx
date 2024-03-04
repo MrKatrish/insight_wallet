@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
+import LastTranctions from "../components/LastTransactions";
 
 const Dashboard = () => {
  
@@ -21,6 +22,7 @@ const Dashboard = () => {
         <div className="flex-1 w-1/4">
           <Chart />
           <BarChart />
+          <LastTranctions/>
           <Footer />
         </div>
 
