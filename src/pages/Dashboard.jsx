@@ -1,36 +1,22 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
-import UserBadge from "../components/UserBadge";
-import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
 import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 
 const Dashboard = () => {
-  const user = {
-    username: "Your Profile",
-    profilePicture: profileImage,
-  };
+ 
   return (
     <>
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-1/4 min-h-screen text-white bg-customPink"> 
-        <Sidebar className="flex"/>
+      <div className="w-1/5 min-w-screen h-screen bg-customPink p-4">
+      <Sidebar />
       </div>
 
       {/* Main Content */}
-      <div className="fw-3/4 min-h-screen bg-customPink">
-        {/* Welcome Content - profile badge */}
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-          <p>Welcome to your dashboard!</p>
-          <UserBadge
-            username={user.username}
-            profilePicture={user.profilePicture}
-          />
-        </div>
+      <div className="w-4/5 min-w-screen h-screen bg-customPink p-4">
         <Chart />
         <CurrencyConverter /> {/* Include CurrencyConverter component */}
         <BarChart />
