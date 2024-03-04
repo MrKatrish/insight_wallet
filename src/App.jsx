@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Income from './pages/Income';
 import Budget from './pages/Budget';
 import Dashboard from './pages/Dashboard';
-import Savingsgoals from './pages/Savingsgoals';
+import Savingsgoals from './pages/SavingsGoals';
 import './App.css';
 
 function App() {
