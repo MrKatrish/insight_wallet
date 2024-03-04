@@ -70,13 +70,13 @@ Make sure you have the following tools installed on your machine:
 git clone https://github.com/yourusername/yourproject.git
 
 1. Navigate to the project directory:
-   cd yourproject
+    - cd yourproject
 
 2. Install dependencies using npm:
-    npm install
+    - npm install
 
 3. Start the development server:
-    npm run dev
+    - npm run dev
 
 This will launch the development server. Open your browser and visit http://localhost:3000 to view the application.
 
