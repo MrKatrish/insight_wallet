@@ -4,38 +4,51 @@ import Footer from "../components/Footer";
 import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
-import LastTranctions from "../components/LastTransactions";
+import LastTransactions from "../components/LastTransactions";
+// add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
- 
   return (
     <>
-    <div className="flex">
-      {/* Sidebar */}
-      <div className="">
-      <Sidebar />
-      </div>
+      <div className="flex h-screen">
+        {/* Sidebar */}
+        <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 ml-80 rounded-3xl ring-gray-300 bg-white min-w-screen mx-auto w-full h-screen p-4 overflow-auto flex">
-        {/* graphs */}
-        <div className="flex-1 w-1/4">
-          <Chart />
-          <BarChart />
-          <LastTranctions/>
-          <Footer />
+        {/* Main Content */}
+        <div className="flex-1 p-10 grid grid-cols-2 grid-rows-3 gap-4">
+          {/* Tile 1 - Bar Chart */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <BarChart />
+          </div>
+          
+          {/* Tile 2 - Currency Converter */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <CurrencyConverter />
+          </div>
+
+          {/* Tile 3 - Add Budget (Placeholder) */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            {/* here add AddBudget component*/}
+          </div>
+
+          {/* Tile 4 - Pie Chart */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <Chart />
+          </div>
+
+          {/* Tile 5 - Last Transactions */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <LastTransactions />
+          </div>
+
+          {/* Tile 6 - Savings Goals (Placeholder) */}
+          <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            {/* here add SavingsGoals componendt*/}
+          </div>
         </div>
-
-        {/* currency converter and transactions column */}
-        <div className="w-1/4">
-          <CurrencyConverter />
-          {/*transactions placeholder*/}
-
-        </div>
-      </div>
-      
       </div>
 
+      <Footer />
     </>
   );
 };
