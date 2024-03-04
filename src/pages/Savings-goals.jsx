@@ -44,8 +44,8 @@ function SavingsGoals({ updateUserData }) {
             <UserInput incomeTitle='Laptop' value={SavingsGoals.Laptop} handleChange={handleChange} />
             
             
-            <div className='flex flex-row justify-center'>
-            <AddNewButton />
+            <div className='flex-col justify-center mt-4'>
+            <AddNewButton className='justify-center'/>
             <p>Total Savings: ${totalAmount.toFixed(2)}</p>
             </div>
             
