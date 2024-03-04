@@ -69,6 +69,7 @@ function Income({ updateUserData }) {
       <FormTitle title='Your Income:' />
       <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
        
+      <div>
         {incomes.map((item, index) => { 
           return (
           <div key={index} className="flex p-2 justify-center">
@@ -77,12 +78,15 @@ function Income({ updateUserData }) {
         )})}
 
         <div className='flex flex-row justify-center'>
-          <FormButton onClick={handleAddIncomes} title='Add new income' />
-          <FormButton onClick={handleSubmit} title='Next' />
+          <FormButton className='h-8 w-8 p-4 m-4 rounded-full font-bold' onClick={handleAddIncomes} title='+' />
         </div>
 
 
         <TotalSum label="Total" total={totalIncome} />
+      </div>
+      
+      {/* Insert back button here */}
+      <FormButton onClick={handleSubmit} title='Next' />
     </>
   );
 }

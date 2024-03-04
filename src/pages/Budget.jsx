@@ -79,13 +79,14 @@ function Budget({ updateUserData }) {
         ))}
 
         <div className='flex flex-row justify-center'>
-          <FormButton className='h-8 w-8 p-4 m-4 rounded-full font-bold' onClick={handleAddBudgets} title='+'/>
+          <FormButton className='h-8 w-8 p-4 m-4 rounded-full font-bold' onClick={handleAddBudgets} title='+' />
         </div>
 
         <TotalSum label="Total" total={totalBudget} />
 
       </div>
 
+      {/* Insert back button here */}
       <FormButton className='justify-left' onClick={handleSubmit} title='Next' />
 
     </>
