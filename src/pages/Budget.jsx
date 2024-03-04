@@ -1,65 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
-import AddIncome from '../components/AddIncome';
 
 function Budget({ updateUserData }) {
   const navigate = useNavigate();
 
-  const [rentInput, setRentInput] = useState(0);
-  const [billsInput, setBillsInput] = useState(0);
-  const [groceriesInput, setGroceriesInput] = useState(0);
-  const [savingsInput, setSavingInput] = useState(0);
-  const [investmentsInput, setInvestmentsInput] = useState(0);
-  const [additionalBudgets, setAdditionalBudgets] = useState([]);
+
+  const [budgets, setBudgets] = useState([
+    {id: 1, title: 'Rent', amount: 0},
+    {id: 2, title: 'Bills', amount: 0},
+    {id: 3, title: 'Groceries', amount: 0},
+    {id: 4, title: 'Savings', amount: 0},
+    {id: 5, title: 'Investments', amount: 0}
+  ]);
+  const [counter, setCounter] = useState(6);
   const [totalBudget, setTotalBudget] = useState(0);
 
-  const handleMainInputChange = (name, e) => {
-    const { value } = e.target;
-    let valueNumber = parseFloat(value);
-
-    if (isNaN(valueNumber)) {
-      valueNumber = 0;
-    }
-
-    switch (name) {
-      case 'Rent':
-        setRentInput(valueNumber);
-        break;
-      case 'Bills':
-        setBillsInput(valueNumber);
-        break;
-        case 'Groceries':
-          setGroceriesInput(valueNumber);
-        case 'Savings':
-          setSavingInput(valueNumber);
-          break;
-        case 'Investments':
-          setInvestmentsInput(valueNumber);
-          break;
-        default:
-          break;
-    }
-
-  };
-
   useEffect(() => {
-    const totalSum = rentInput + billsInput + groceriesInput + savingsInput + investmentsInput + additionalBudgets
-    .map((e) => e.amount)
-    .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    const totalSum = budgets
+      .map((e) => e.amount)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
 
     setTotalBudget(totalSum);
-  }, [rentInput, billsInput, groceriesInput, savingsInput, investmentsInput, additionalBudgets]);
+  }, [budgets]);
 
-   const handleAddBudget = () => {
-    setAdditionalBudgets([
-      ...additionalBudgets,  { title: '', amount: 0 }
-    ])
+   const handleAddBudgets = () => {
+    setCounter(p => p + 1);
+
+    setBudgets(
+      (previous) => [...previous, { id: counter, title: '', amount: 0 }]
+    )
   };
 
-  const handleAdditionalBudgetChange = (index, e) => {
+  const handleBudgetChange = (id, e) => {
     const { value } = e.target;
     let valueNumber = parseFloat(value);
 
@@ -67,43 +42,41 @@ function Budget({ updateUserData }) {
       valueNumber = 0;
     }
 
-    setAdditionalBudgets(
-      (previousAdditionalBudget) => previousAdditionalBudget.map((obj, i) => i === index ? {...obj, amount: valueNumber} : obj) 
+    setBudgets(
+      (previousAdditionalBudget) => previousAdditionalBudget.map((obj, i) => obj.id === id ? {...obj, amount: valueNumber} : obj) 
     )
   };
 
   const handleSubmit = () => {
-    const budgetData = {
-      rent: rentInput,
-      bills: billsInput,
-      groceries: groceriesInput,
-      savings: savingsInput,
-      investments: investmentsInput,
-    };
 
-    updateUserData({ budget: budgetData });
-    navigate('/savings-goals');
+    navigate('/savingsgoals');
   };
+
+  const handleBudgetTitleChange = (id, e) => {
+    setBudgets(
+      (previousAdditionalBudget) => previousAdditionalBudget.map((obj, i) => obj.id === id ? {...obj, title: e.target.value} : obj) 
+    )
+  }
+
+  const handleDelete = (id) => {
+    setBudgets((previousAdditionalBudget) =>
+      previousAdditionalBudget.filter((obj) => obj.id !== id));
+  }
+
 
   return (
     <>
       <FormTitle title='Your Expenditure Budget:' />
       <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Allocate funds to different categories such as housing, utilities, entertainment, and more. Simply input your estimated spending for each category, and our finance tracker will help you stay on top of your financial goals.</p>
 
-      <UserInput incomeTitle='Rent' handleChange={handleMainInputChange} />
-      <UserInput incomeTitle='Bills' handleChange={handleMainInputChange} />
-      <UserInput incomeTitle='Groceries' handleChange={handleMainInputChange} />
-      <UserInput incomeTitle='Savings' handleChange={handleMainInputChange} />
-      <UserInput incomeTitle='Investments' handleChange={handleMainInputChange} />
-
-      {additionalBudgets.map((item, index) => (
+      {budgets.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
-          <AddIncome index={index} onChange={handleAdditionalBudgetChange}/>
+            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleBudgetChange} handleLabelTitleChange={handleBudgetTitleChange} handleDelete={handleDelete}/>
         </div>
       ))}
 
       <div className='flex flex-row justify-center'>
-        <FormButton onClick={handleAddBudget} title='Add new budget item' />
+        <FormButton onClick={handleAddBudgets} title='Add new budget item' />
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
