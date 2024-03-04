@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
+import TotalSum from '../components/TotalSum';
+
 
 function Budget({ updateUserData }) {
   const navigate = useNavigate();
@@ -80,10 +82,7 @@ function Budget({ updateUserData }) {
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
-      <div className='flex p-2 justify-center'>
-            <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
-            <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalBudget.toFixed(2)}</label>
-      </div>
+      <TotalSum label="Total" total={totalBudget} />
 
     </>
   );
