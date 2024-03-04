@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
+import TotalSum from '../components/TotalSum';
+
 
 function SavingsGoals({ updateUserData }) {
     const navigate = useNavigate();
@@ -11,6 +13,9 @@ function SavingsGoals({ updateUserData }) {
     const [houseInput, setHouseInput] = useState(0);
     const [carInput, setCarInput] = useState(0);
     const [additionalSavings, setAdditionalSavings] = useState([]);
+
+    const [counter, setCounter] = useState(8)
+    const [totalSavings, setTotalSavings] = useState(0);
 
     const handleMainInputChange = (name, e) => {
         const { value } = e.target;
@@ -36,11 +41,15 @@ function SavingsGoals({ updateUserData }) {
      };
 
      const handleAddSavings = () => {
-       
-        setAdditionalSavings([
-          ...additionalSavings,  { title: '', amount: 0 }
-        ])
-    };
+      // setAdditionalSavings([
+      //   ...additionalSavings,  { title: '', amount: 0 }
+      // ])
+        setCounter((p) => p + 1);
+        setTotalSavings((previous) => [
+          ...previous,
+          { id: counter, title: "", amount: 0 },
+        ]);
+      };
         
 
       const handleAdditionalSavingGoals = (index, e) => {
@@ -86,6 +95,9 @@ function SavingsGoals({ updateUserData }) {
             <FormButton onClick={handleAddSavings} title='Add New Saving Goal' />
             <FormButton onClick={handleSubmit} title='Next' />
           </div>
+
+          <TotalSum label="Total" total={totalSavings} />
+
     
         </div>
 
