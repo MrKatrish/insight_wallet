@@ -25,7 +25,7 @@ function App() {
             <Route path="/" element={<Home />} /> 
             <Route path="/income" element={<Income updateUserData={updateUserData} />} /> 
             <Route path="/budget" element={<Budget updateUserData={updateUserData}/>} /> 
-            <Route path="/savings-goals" element={<SavingsGoals />} />
+            <Route path="/Savings-goals" element={<SavingsGoals updateUserData={updateUserData}/>} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes> 
         {/* </div> */}
