@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../components/FormButton';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import SignUpInput from '../components/SignUpInput';
 
 function Home() {

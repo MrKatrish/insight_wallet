@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
 
 function Budget({ updateUserData }) {
@@ -48,9 +48,7 @@ function Budget({ updateUserData }) {
   };
 
   const handleSubmit = () => {
-    const budgetData = budgets;
 
-    updateUserData({ budget: budgetData });
     navigate('/savingsgoals');
   };
 

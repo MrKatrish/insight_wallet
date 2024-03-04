@@ -25,9 +25,8 @@ function App() {
             <Route path="/" element={<Home />} /> 
             <Route path="/income" element={<Income updateUserData={updateUserData} />} /> 
             <Route path="/budget" element={<Budget userData={userData} />} /> 
-            <Route path="/dashboard" element={<Dashboard />} />
-            {/* Dodajemy ścieżkę dla Savingsgoals */}
             <Route path="/savingsgoals" element={<Savingsgoals />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes> 
         {/* </div> */}
         {/* <footer className="bg-blue-500 text-white py-4 px-8">

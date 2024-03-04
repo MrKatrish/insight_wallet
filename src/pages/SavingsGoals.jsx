@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
-import AddIncome from '../components/AddIncome';
 
 function SavingsGoals({ updateUserData }) {
     const navigate = useNavigate();
@@ -64,8 +63,8 @@ function SavingsGoals({ updateUserData }) {
           car: carInput,
         };
     
-        updateUserData({ savings: savingsData });
-        navigate("/dashboard"); //need to add path in App.jsx as well I'm not sure about data is saving/changing/updating
+
+        navigate('/dashboard'); //need to add path in App.jsx as well I'm not sure about data is saving/changing/updating
       };
 
     
