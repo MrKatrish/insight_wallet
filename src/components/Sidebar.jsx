@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
-import UserBadge from "../components/UserBadge";
 
 
 const Sidebar = () => {
@@ -27,7 +26,7 @@ const Sidebar = () => {
       <ul>
         <li>
           <Link to="/overview" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-            Dashboard
+          <i className="fas fa-home mr-2"></i>Dashboard
           </Link>
         </li>
         <li>

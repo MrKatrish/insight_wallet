@@ -11,17 +11,27 @@ const Dashboard = () => {
     <>
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-1/5 min-w-screen h-screen bg-customPink p-4">
+      <div className="">
       <Sidebar />
       </div>
 
       {/* Main Content */}
-      <div className="w-4/5 min-w-screen h-screen bg-customPink p-4">
-        <Chart />
-        <CurrencyConverter /> {/* Include CurrencyConverter component */}
-        <BarChart />
-        <Footer />
+      <div className="flex-1 ml-80 rounded-3xl ring-gray-300 bg-white min-w-screen mx-auto w-full h-screen p-4 overflow-auto flex">
+        {/* graphs */}
+        <div className="flex-1 w-1/4">
+          <Chart />
+          <BarChart />
+          <Footer />
+        </div>
+
+        {/* currency converter and transactions column */}
+        <div className="w-1/4">
+          <CurrencyConverter />
+          {/*transactions placeholder*/}
+
+        </div>
       </div>
+      
       </div>
 
     </>
