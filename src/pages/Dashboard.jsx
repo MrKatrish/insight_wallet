@@ -16,14 +16,14 @@ const Dashboard = () => {
     <>
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-1/4 min-h-screen bg-gray-800 text-white"> 
+      <div className="w-1/4 min-h-screen text-white bg-customPink"> 
         <Sidebar className="flex"/>
       </div>
 
       {/* Main Content */}
-      <div className="fw-3/4 min-h-screen bg-gray-100">
+      <div className="fw-3/4 min-h-screen bg-customPink">
+        {/* Welcome Content - profile badge */}
         <div className="container mx-auto px-4 py-8">
-          {/* Welcome Content */}
           <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
           <p>Welcome to your dashboard!</p>
           <UserBadge
