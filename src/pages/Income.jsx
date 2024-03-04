@@ -1,58 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
-import AddIncome from '../components/AddIncome';
 
 function Income({ updateUserData }) {
   const navigate = useNavigate();
 
-  const [salaryInput, setSalaryInput] = useState(0);
-  const [sideHustleInput, setSideHustleInput] = useState(0);
-  const [otherInput, setOtherInput] = useState(0);
-  const [additionalIncomes, setAdditionalIncomes] = useState([]);
+  const [incomes, setIncomes] = useState([
+    {id: 1, title: 'Salary', amount: 0},
+    {id: 2, title: 'Side Hustle', amount: 0},
+    {id: 3, title: 'Other', amount: 0}
+  ]);
+  const [counter, setCounter] = useState(4)
   const [totalIncome, setTotalIncome] = useState(0);
 
-  const handleMainInputChange = (name, e) => {
-    const { value } = e.target;
-    let valueNumber = parseFloat(value);
-
-    if (isNaN(valueNumber)) {
-      valueNumber = 0;
-    }
-
-    switch (name) {
-      case 'Salary':
-        setSalaryInput(valueNumber);
-        break;
-      case 'Side Hustle':
-        setSideHustleInput(valueNumber);
-        break;
-      case 'Other':
-        setOtherInput(valueNumber);
-        break;
-      default:
-        break;
-    }
-
-  };
-
   useEffect(() => {
-    const totalSum = salaryInput + sideHustleInput + otherInput + additionalIncomes
-    .map((e) => e.amount)
-    .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    const totalSum = incomes
+      .map((e) => e.amount)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
 
     setTotalIncome(totalSum);
-  }, [salaryInput, sideHustleInput, otherInput, additionalIncomes]);
+  }, [incomes]);
 
-   const handleAddIncomes = () => {
-    setAdditionalIncomes([
-      ...additionalIncomes,  { title: '', amount: 0 }
-    ])
+  const handleAddIncomes = () => {
+   setCounter(p => p + 1);
+
+    setIncomes(
+      (previous) => [...previous, { id: counter, title: '', amount: 0 }] 
+      )
   };
 
-  const handleAdditionalIncomeChange = (index, e) => {
+  const handleIncomeChange = (id, e) => {
     const { value } = e.target;
     let valueNumber = parseFloat(value);
 
@@ -60,36 +39,41 @@ function Income({ updateUserData }) {
       valueNumber = 0;
     }
     
-    setAdditionalIncomes(
-      (previousAdditionalIncome) => previousAdditionalIncome.map((obj, i) => i === index ? {...obj, amount: valueNumber} : obj) 
+    setIncomes(
+      (previousAdditionalIncome) => previousAdditionalIncome.map((obj, i) => obj.id === id ? {...obj, amount: valueNumber} : obj) 
     )
   };
 
 
   const handleSubmit = () => {
-    const incomeData = {
-      salary: salaryInput,
-      sideHustle: sideHustleInput,
-      other: otherInput,
-    };
+    const incomeData = incomes;
 
     updateUserData({ income: incomeData });
     navigate('/budget');
   };
 
+  const handleIncomeTitleChange = (id, e) => {
+    setIncomes(
+      (previousAdditionalIncome) => previousAdditionalIncome.map((obj, i) => obj.id === id ? {...obj, title: e.target.value} : obj) 
+    )
+  }
+
+  const handleDelete = (id) => {
+    setIncomes((previousAdditionalIncome) =>
+      previousAdditionalIncome.filter((obj) => obj.id !== id));
+  }
+
   return (
     <>
       <FormTitle title='Your Income:' />
       <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
-        <UserInput incomeTitle='Salary' handleChange={handleMainInputChange}/>
-        <UserInput incomeTitle='Side Hustle' handleChange={handleMainInputChange}/>
-        <UserInput incomeTitle='Other' handleChange={handleMainInputChange}/>
-
-        {additionalIncomes.map((item, index) => (
+       
+        {incomes.map((item, index) => { 
+          return (
           <div key={index} className="flex p-2 justify-center">
-            <AddIncome index={index} onChange={handleAdditionalIncomeChange}/>
+            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleIncomeChange} handleLabelTitleChange={handleIncomeTitleChange} handleDelete={handleDelete}/>
           </div>
-        ))}
+        )})}
 
         <div className='flex flex-row justify-center'>
           <FormButton onClick={handleAddIncomes} title='Add new income' />
@@ -104,5 +88,6 @@ function Income({ updateUserData }) {
     </>
   );
 }
+
 
 export default Income;

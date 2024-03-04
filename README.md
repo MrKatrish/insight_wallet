@@ -1,4 +1,4 @@
-# Final Project
+<!-- # Final Project
 
 ## Application Requirements
 
@@ -22,7 +22,7 @@ You and your group will use everything you’ve learned to create a real-world c
 
 ## Presentation Requirements
 
-Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following: 
+Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following:
 
 * Elevator pitch: a one minute description of your application.
 
@@ -34,4 +34,113 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 * Directions for future development
 
-* Links to to the deployed application and the GitHub repository
+* Links to to the deployed application and the GitHub repository -->
+
+# Insight Wallet
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Description
+
+Insight Wallet is a personal finance management web application designed to empower users on their journey to financial well-being. With Insight Wallet, users can effortlessly track their income streams, create and manage budgets, set and achieve savings goals, and gain valuable insights into their spending habits.
+
+## Table of Contents
+
+- [Requirements](#installation)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Built With](#tests)
+- [Screenshots and Links](#screenshots and links)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Credits](#tests)
+- [License](#license)
+
+## Requirements
+
+Make sure you have the following tools installed on your machine:
+
+- [Node.js](https://nodejs.org/) (includes npm)
+- [Vite](https://vitejs.dev/)
+
+## Installation
+
+**Clone the repository:**
+git clone https://github.com/yourusername/yourproject.git
+
+1. Navigate to the project directory:
+    - cd yourproject
+
+2. Install dependencies using npm:
+    - npm install
+
+3. Start the development server:
+    - npm run dev
+
+This will launch the development server. Open your browser and visit http://localhost:3000 to view the application.
+
+**To build the project for production, use:**
+    - npm run build
+
+## Usage
+
+1. Navigate Through the App:
+
+- Home: The landing page with a brief introduction to Insight Wallet.
+- Income: Input your income streams and details.
+- Budget: Budget your expenditures and allocate funds to different categories.
+- Savings Goals: Set and track your savings goals for various items or objectives.
+- Dashboard: View an overview of your financial status and transactions.
+
+2. Input Income:
+
+- On the Income page, enter your various income sources and amounts.
+- Click the "Next" button to proceed to the budgeting section.
+- Budget Your Expenditure:
+
+3. Allocate funds to different categories such as rent, bills, groceries, savings, and investments.
+- Add new budget items as needed.
+- The total budget amount is displayed at the bottom.
+
+4. Set Savings Goals:
+- On the Savings Goals page, enter items or goals you're saving for and their target amounts.
+- Click the "Next" button to proceed.
+
+5. View Dashboard:
+- On the Dashboard, get an overview of your financial situation, including your savings, budget status, and recent transactions.
+
+
+## Built With
+
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+A JavaScript library for building user interfaces.
+
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) 
+The programming language used to create dynamic content on your website.
+
+![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) 
+A utility-first CSS framework for rapidly building modern designs.
+
+![jQuery](https://img.shields.io/badge/-jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white) 
+A fast, small, and feature-rich JavaScript library.
+
+## Screenshots/ Links
+
+## Contributors
+
+1. [Paulina Siwko](https://github.com/paulinasiwko)
+2. [Nirmean Sawi](https://github.com/Nirmean)
+3. [Tomasz Jasinski](https://github.com/TomixJasina)
+4. [Michal Paleczny](https://github.com/MrKatrish)
+5. [Aijamal Jusupova](https://github.com/Aijus2022)
+6. [Divine](https://github.com/divine2192)
+7. [Pawel Narkhashel](https://github.com/Narkhashel)
+
+
+## Tests
+
+## Credits
+
+## License
+
+Distributed under the MIT License. See LICENSE.txt for more information.
