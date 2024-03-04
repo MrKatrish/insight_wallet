@@ -31,17 +31,18 @@ function Income({ updateUserData }) {
       )
   };
 
-  const handleIncomeChange = (id, e) => {
-    const { value } = e.target;
+  const handleIncomeChange = (id, value) => {
     let valueNumber = parseFloat(value);
-
-    if(isNaN(valueNumber)) {
+  
+    if (isNaN(valueNumber)) {
       valueNumber = 0;
     }
-    
+  
     setIncomes(
-      (previousAdditionalIncome) => previousAdditionalIncome.map((obj, i) => obj.id === id ? {...obj, amount: valueNumber} : obj) 
-    )
+      (previousIncomes) => previousIncomes.map((income) =>
+        income.id === id ? { ...income, amount: valueNumber } : income
+      )
+    );
   };
 
 
@@ -71,7 +72,14 @@ function Income({ updateUserData }) {
         {incomes.map((item, index) => { 
           return (
           <div key={index} className="flex p-2 justify-center">
-            <UserInput labelTitle={item.title} labelAmount={item.amount} id={item.id} handleChange={handleIncomeChange} handleLabelTitleChange={handleIncomeTitleChange} handleDelete={handleDelete}/>
+            <UserInput
+              labelTitle={item.title}
+              labelAmount={item.amount}
+              id={item.id}
+              handleChange={(id, value) => handleIncomeChange(id, value)}
+              handleLabelTitleChange={handleIncomeTitleChange}
+              handleDelete={handleDelete}
+            />
           </div>
         )})}
 
