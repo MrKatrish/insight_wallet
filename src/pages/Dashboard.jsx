@@ -22,14 +22,11 @@ const Dashboard = () => {
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               <h2>Your Monthly Budget</h2>
               <Chart />
-              <h2>Financial Overview</h2>
-              <BarChart />
             </div>
             
             {/* Tile 2 - Currency Converter */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
              <h2>Currency Conversion</h2>
-              <h2>Currency Converter</h2>
               <CurrencyConverter />
             </div>
 
@@ -42,8 +39,6 @@ const Dashboard = () => {
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               <h2>Actual Spend</h2>
               <BarChart />
-              <h2>Monthly Budget</h2>
-              <Chart />
             </div>
 
             {/* Tile 5 - Last Transactions */}
