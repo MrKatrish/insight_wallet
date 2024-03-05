@@ -1,53 +1,100 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import UserInput from '../components/UserInput';
+import FormTitle from '../components/FormTitle';
+import FormButton from '../components/FormButton';
 
+function Income() {
+  const navigate = useNavigate();
 
-const Sidebar = () => {
+  const [incomes, setIncomes] = useState([
+    {id: 1, title: 'Salary', amount: 0},
+    {id: 2, title: 'Side Hustle', amount: 0},
+    {id: 3, title: 'Other', amount: 0}
+  ]);
+  const [counter, setCounter] = useState(4);
+  const [totalIncome, setTotalIncome] = useState(0);
 
-  const user = {
-    username: "John",
-    profilePicture: profileImage,
+  useEffect(() => {
+    const totalSum = incomes
+      .map((income) => income.amount)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    setTotalIncome(totalSum);
+  }, [incomes]);
+
+  const handleAddIncomes = () => {
+    setCounter(p => p + 1);
+    setIncomes([...incomes, { id: counter, title: '', amount: 0 }]);
+  };
+
+  const handleIncomeChange = (id, e) => {
+    const value = e.target.value;
+    let valueNumber = parseFloat(value);
+    if (isNaN(valueNumber)) {
+      valueNumber = 0;
+    }
+
+    setIncomes(incomes.map((income) =>
+      income.id === id ? { ...income, amount: valueNumber } : income
+    ));
+  };
+
+  const handleIncomeTitleChange = (id, e) => {
+    const { value } = e.target;
+  
+    setIncomes(incomes.map((income) => {
+      if (income.id === id) {
+        const amount = incomes.find(item => item.id === id)?.amount || 0;
+        return { ...income, title: value, amount };
+      }
+      return income;
+    }));
+  };
+
+  const handleDelete = (id) => {
+    setIncomes(incomes.filter((income) => income.id !== id));
+  }
+
+  const handleSubmit = () => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
+      userData.incomes = incomes;
+      localStorage.setItem(currentUser, JSON.stringify(userData));
+    }
+    navigate('/budget');
   };
 
   return (
-    <div className="sidebar text-white h-full w-80 fixed top-0 left-0 bg-customPurple">
-      {/* User Profile Section */}
-      <div className="p-4">
-        <img
-          src={user.profilePicture}
-          alt={user.username}
-          className="w-40 h-40 rounded-full mx-auto py-3 px-1"
-        />
-        <p className="mb-8">Welcome back {user.username}!</p>
-        
+    <>
+      <FormTitle title='Your Income:' />
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
+       
+      {incomes.map((item, index) => (
+        <div key={index} className="flex p-2 justify-center">
+          <UserInput
+            labelTitle={item.title}
+            labelAmount={item.amount}
+            id={item.id}
+            handleChange={handleIncomeChange}
+            handleLabelTitleChange={handleIncomeTitleChange}
+            handleDelete={handleDelete}
+          />
+        </div>
+      ))}
+
+      <div className='flex flex-row justify-center'>
+        <FormButton onClick={handleAddIncomes} title='Add new income' />
+        <FormButton onClick={handleSubmit} title='Next' />
       </div>
-      {/* Navigation Links */}
-      <ul>
-        <li>
-          <Link to="/overview" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-          <i className="fas fa-home mr-2"></i>Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link to="/reports" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-            Analytics
-          </Link>
-        </li>
-        <li>
-          <Link to="/transactions" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-            Transactions
-          </Link>
-        </li>
-        <li>
-          <Link to="/goals" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-            Account
-          </Link>
-        </li>
-      </ul>
-    </div>
+
+      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
+        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {totalIncome.toFixed(2)}</label>
+      </div>
+    </>
   );
-};
+}
 
-export default Sidebar;
-
+export default Income;

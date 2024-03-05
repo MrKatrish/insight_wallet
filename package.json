@@ -15,6 +15,7 @@
     "body-parser": "^1.20.2",
     "chart.js": "^4.4.2",
     "chartjs": "^0.3.24",
+    "circle-flags": "github:HatScripts/circle-flags",
     "datasette": "^1.0.1",
     "express": "^4.18.3",
     "flaschenpost": "^5.1.1",

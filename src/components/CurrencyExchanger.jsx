@@ -1,86 +1,173 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'; 
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const CurrencyConverter = () => {
-  const [currencies, setCurrencies] = useState([]);
-  const [selectedCurrency1, setSelectedCurrency1] = useState('');
-  const [selectedCurrency2, setSelectedCurrency2] = useState('');
-  const [amount, setAmount] = useState(0);
-  const [exchangeRate, setExchangeRate] = useState(0);
-  const API_KEY = 'T47yNL4V8FyuW3kVK9Sjc2rXNELA9E';
+const currencyCodeToNameMapping = {
+    "USD": "United States Dollar",
+    "GBP": "British Pound",
+    "EUR": "Euro",
+    "CHF": "Swiss Franc",
+    "NOK": "Norwegian Krone",
+    "SEK": "Swedish Krona",
+    "CAD": "Canadian Dollar",
+    "MXN": "Mexican Peso",
+    "JPY": "Japanese Yen",
+    "CNY": "Chinese Yuan",
+    "INR": "Indian Rupee",
+    "RUB": "Russian Ruble",
+    "KRW": "South Korean Won",
+    "SAR": "Saudi Riyal",
+    "ILS": "Israeli New Shekel",
+    "BRL": "Brazilian Real",
+    "ARS": "Argentine Peso",
+    "ZAR": "South African Rand",
+    "NGN": "Nigerian Naira",
+    "AUD": "Australian Dollar",
+    "NZD": "New Zealand Dollar",
+    "TRY": "Turkish Lira",
+    "PLN": "Polish Zloty",
+    "CZK": "Czech Koruna",
+    "HUF": "Hungarian Forint",
+    "THB": "Thai Baht",
+    "SGD": "Singapore Dollar",
+    "MYR": "Malaysian Ringgit",
+    "PHP": "Philippine Peso",
+    "IDR": "Indonesian Rupiah",
+    "VND": "Vietnamese Dong",
+    "EGP": "Egyptian Pound",
+    "PKR": "Pakistani Rupee",
+    "BDT": "Bangladeshi Taka",
+    "COP": "Colombian Peso",
+    "CLP": "Chilean Peso",
+    "PEN": "Peruvian Sol",
+    "VES": "Venezuelan Bolívar",
+    "QAR": "Qatari Rial",
+    "AED": "United Arab Emirates Dirham",
+    "ALL": "Albanian Lek",
+    "AMD": "Armenian Dram",
+    "AZN": "Azerbaijani Manat",
+    "BYN": "Belarusian Ruble",
+    "BAM": "Bosnia-Herzegovina Convertible Mark",
+    "BGN": "Bulgarian Lev",
+    "HRK": "Croatian Kuna",
+    "DKK": "Danish Krone",
+    "GEL": "Georgian Lari",
+    "GIP": "Gibraltar Pound",
+    "ISK": "Icelandic Króna",
+    "MKD": "Macedonian Denar",
+    "MDL": "Moldovan Leu",
+    "RON": "Romanian Leu",
+    "RSD": "Serbian Dinar",
+    "UAH": "Ukrainian Hryvnia",
+    "MAD": "Morocan Dirham"
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://www.amdoren.com/api/currency.php?api_key=${API_KEY}`);
-        setCurrencies(Object.keys(response.data));
-      } catch (error) {
-        console.error('Error fetching data:', error);
+async function convertCurrency(amount, fromCurrency, toCurrency) {
+  const url = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    if (data && data.rates) {
+      const rate = data.rates[toCurrency];
+      if (rate) {
+        return (amount * rate).toFixed(2);
+      } else {
+        throw new Error(`Rate for ${toCurrency} not found`);
       }
-    };
+    } else {
+      throw new Error('Invalid data');
+    }
+  } catch (error) {
+    console.error("Error converting currency:", error);
+    return "Error converting currency. Please try again later.";
+  }
+}
 
-    fetchData();
-  }, []);
+const CurrencyExchanger = () => {
+  const [fromCurrency, setFromCurrency] = useState('USD');
+  const [toCurrency, setToCurrency] = useState('EUR');
+  const [amount, setAmount] = useState(100);
+  const [result, setResult] = useState('');
 
-  const handleCurrencyChange1 = (e) => {
-    setSelectedCurrency1(e.target.value);
-  };
-
-  const handleCurrencyChange2 = (e) => {
-    setSelectedCurrency2(e.target.value);
+  const handleToggle = () => {
+    const temp = fromCurrency;
+    setFromCurrency(toCurrency);
+    setToCurrency(temp);
+    setResult('');
   };
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
 
-  useEffect(() => {
-    const fetchExchangeRate = async () => {
-      try {
-        if (selectedCurrency1 && selectedCurrency2) {
-          const response = await axios.get(
-            `https://www.amdoren.com/api/currency.php?api_key=${API_KEY}&from=${selectedCurrency1}&to=${selectedCurrency2}`
-          );
-          setExchangeRate(response.data.rate);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchExchangeRate();
-  }, [selectedCurrency1, selectedCurrency2]);
-
-  const convertedAmount = amount * exchangeRate;
+  const handleConvert = async () => {
+    try {
+      const convertedAmount = await convertCurrency(amount, fromCurrency, toCurrency);
+      setResult(convertedAmount);
+    } catch (error) {
+      console.error("Error converting currency:", error);
+      setResult("Error converting currency. Please check your inputs and try again.");
+    }
+  };
 
   return (
     <div>
-      <h2>Currency Converter</h2>
-      <div>
-        <label>Select source currency:</label>
-        <select value={selectedCurrency1} onChange={handleCurrencyChange1}>
-          {currencies.map(currency => (
-            <option key={currency} value={currency}>{currency}</option>
+      <h1 className="mb-5">Currency Exchanger</h1>
+      <div className="flex items-center">
+        <select
+          value={fromCurrency}
+          onChange={(e) => setFromCurrency(e.target.value)}
+          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
+          style={{ width: '300px' }}
+        >
+          {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
+            <option key={currencyCode} value={currencyCode}>
+              {currencyCode} - {currencyName}
+            </option>
           ))}
         </select>
+        <input
+          type="number"
+          value={amount}
+          onChange={handleAmountChange}
+          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+        />
       </div>
-      <div>
-        <label>Select target currency:</label>
-        <select value={selectedCurrency2} onChange={handleCurrencyChange2}>
-          {currencies.map(currency => (
-            <option key={currency} value={currency}>{currency}</option>
+      <div className="flex items-center mt-4">
+        <select
+          value={toCurrency}
+          onChange={(e) => setToCurrency(e.target.value)}
+          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
+          style={{ width: '300px' }}
+        >
+          {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
+            <option key={currencyCode} value={currencyCode}>
+              {currencyCode} - {currencyName}
+            </option>
           ))}
         </select>
+        <input
+          type="text"
+          value={`${result} ${toCurrency}`}
+          readOnly
+          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+        />
       </div>
-      <div>
-        <label>Enter amount:</label>
-        <input type="number" value={amount} onChange={handleAmountChange} />
+      <div className="mt-4">
+        <button
+          onClick={handleToggle}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Toggle
+        </button>
+        <button
+          onClick={handleConvert}
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2"
+        >
+          Convert
+        </button>
       </div>
-      {exchangeRate !== 0 && (
-        <p>{amount} {selectedCurrency1} = {convertedAmount} {selectedCurrency2}</p>
-      )}
     </div>
   );
 };
 
-export default CurrencyConverter;
+export default CurrencyExchanger;
