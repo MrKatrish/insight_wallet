@@ -26,7 +26,7 @@ export default function UserInput({ labelTitle, labelAmount, handleChange, handl
         </div>
         <button
           onClick={() => handleDelete(id)}
-          className="text-lg font-medium border-0 px-4 sm:px-5 py-3 mx-2 sm:mx-5 ring-1 ring-inset ring-gray-300 rounded-3xl bg-white text-red-400 mt-2 sm:mt-0"
+          className="text-sm font-medium border-0 px-4 sm:px-5 py-3 mx-2 sm:mx-5 ring-1 ring-inset ring-gray-300 rounded-3xl bg-gray-100 text-gray-400 mt-2 sm:mt-0"
         >
           X
         </button>
