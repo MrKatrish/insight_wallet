@@ -12,7 +12,7 @@ function LastTranctions() {
 
       
         <>
-        <h1 className="m-5">Last Transations</h1>
+        {/* <h1 className="m-5">Last Transations</h1> */}
         <div className="flex p-2 justify-center">
           
           <div className="flex items-center">
