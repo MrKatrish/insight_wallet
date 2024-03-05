@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from '../components/FormTitle';
@@ -30,6 +30,17 @@ function SavingsGoals() {
     );
   };
 
+  const handleLabelTitleChange = (id, e) => {
+    const newTitle = e.target.value;
+
+    setSavingsGoals(previous => previous.map(goal => {
+      if (goal.id === id) {
+        return { ...goal, title: newTitle };
+      }
+      return goal;
+    }));
+  };
+
   const handleAddSavings = () => {
     setSavingsGoals([
       ...savingsGoals, { id: counter, title: '', amount: 0 }
@@ -57,13 +68,7 @@ function SavingsGoals() {
           labelAmount={goal.amount}
           id={goal.id}
           handleChange={handleSavingsGoalsChange}
-          handleLabelTitleChange={(id, value) => {
-            setSavingsGoals(
-              savingsGoals.map(goal =>
-                goal.id === id ? { ...goal, title: value } : goal
-              )
-            );
-          }}
+          handleLabelTitleChange={handleLabelTitleChange}
           handleDelete={(id) => {
             setSavingsGoals(savingsGoals.filter(goal => goal.id !== id));
           }}

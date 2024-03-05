@@ -41,10 +41,16 @@ function Income() {
   };
 
   const handleIncomeTitleChange = (id, e) => {
-    setIncomes(incomes.map((income) =>
-      income.id === id ? { ...income, title: e.target.value } : income
-    ));
-  }
+    const { value } = e.target;
+  
+    setIncomes(incomes.map((income) => {
+      if (income.id === id) {
+        const amount = incomes.find(item => item.id === id)?.amount || 0;
+        return { ...income, title: value, amount };
+      }
+      return income;
+    }));
+  };
 
   const handleDelete = (id) => {
     setIncomes(incomes.filter((income) => income.id !== id));

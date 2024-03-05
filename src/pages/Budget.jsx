@@ -48,7 +48,9 @@ function Budget() {
     navigate('/savingsgoals');
   };
 
-  const handleBudgetTitleChange = (id, newTitle) => {
+  const handleBudgetTitleChange = (id, e) => {
+    const newTitle = e.target.value;
+  
     setBudgets(previous => previous.map(budget => {
       if (budget.id === id) {
         return { ...budget, title: newTitle };
