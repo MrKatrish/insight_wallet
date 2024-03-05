@@ -15,7 +15,7 @@ const Dashboard = () => {
         <Sidebar />
 
         {/* Main Content Wrapper */}
-        <div className="flex-1 p-10 pl-40">
+        <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96">
           {/* Main Content */}
           <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-2 grid-rows-3 gap-4">
             {/* Tile 1 - Bar Chart */}
@@ -48,10 +48,11 @@ const Dashboard = () => {
               {/* here add SavingsGoals component*/}
             </div>
           </div>
+
+          <Footer />
+          
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };
