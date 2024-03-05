@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserBadge from '../components/UserBadge';
+import profileImage from '../Assets/jonas-kakaroto.jpg'; // Import the profile picture
+
 
 const Sidebar = () => {
+  const user = {
+    username: 'Jonas Kakaroto',
+    profilePicture: profileImage,
+  };
   return (
     <div className="sidebar bg-black text-white">
       <h2 className="text-center py-4">Navigation</h2>
@@ -32,6 +39,7 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
+      <UserBadge username={user.username} profilePicture={user.profilePicture} />
     </div>
   );
 };
