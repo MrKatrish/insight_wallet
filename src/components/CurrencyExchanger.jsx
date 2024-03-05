@@ -111,7 +111,6 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
-      <h1 className="mb-5">Currency Exchanger</h1>
       <div className="flex items-center">
         <select
           value={fromCurrency}
