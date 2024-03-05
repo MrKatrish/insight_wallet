@@ -61,7 +61,9 @@ function SavingsGoals() {
   return (
     <>
       <FormTitle title='Your Saving Goals:' />
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Whether it's a dream vacation, a new gadget, or an emergency fund. Simply enter the item or goal name, and set the target amount.</p>
       {savingsGoals.map((goal, index) => (
+        <div key={index} className="flex p-2 justify-center">
         <UserInput
           key={index}
           labelTitle={goal.title}
@@ -73,6 +75,7 @@ function SavingsGoals() {
             setSavingsGoals(savingsGoals.filter(goal => goal.id !== id));
           }}
         />
+        </div>
       ))}
       <div className='flex flex-row justify-center'>
         <FormButton onClick={handleAddSavings} title='Add New Saving Goal' />
