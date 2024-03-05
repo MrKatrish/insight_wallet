@@ -3,9 +3,11 @@ import logo from '../assets/logo.png';
 
 export default function FormTitle({ title }) {
     return (
-        <div>
-            <img src={logo} alt="Logo" className="logo-class" />
-            <h1 className="mb-10">{title}</h1>
+        <>
+        <div className="block mx-auto w-32">
+            <img src={logo} alt="Logo" />
         </div>
+        <h1 className="mb-10">{title}</h1>
+        </>
     );
 }
