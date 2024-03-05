@@ -28,7 +28,8 @@ function Budget() {
     setBudgets(previous => [...previous, { id: counter, title: '', amount: 0 }]);
   };
 
-  const handleBudgetChange = (id, value) => {
+  const handleBudgetChange = (id, e) => {
+    const value = e.target.value;
     setBudgets(budgets.map(budget => {
       if (budget.id === id) {
         return { ...budget, amount: parseFloat(value) || 0 };
