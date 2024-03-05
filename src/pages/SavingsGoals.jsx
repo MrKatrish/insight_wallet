@@ -15,7 +15,8 @@ function SavingsGoals() {
 
   const [counter, setCounter] = useState(4);
 
-  const handleSavingsGoalsChange = (id, value) => {
+  const handleSavingsGoalsChange = (id, e) => {
+    const value = e.target.value;
     let valueNumber = parseFloat(value);
 
     if (isNaN(valueNumber)) {
