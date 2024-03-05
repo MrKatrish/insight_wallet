@@ -13,7 +13,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar text-white h-full w-90 fixed top-0 left-0 bg-customPurple flex flex-col items-center justify-center p-4">
       {/* User Profile Section */}
-      <div  className='bg-slate-100 bg-opacity-50 rounded-xl w-64 text-center outline-6 outline-purple-950 p-8 m-8'>
+      <div  className='bg-slate-100 bg-opacity-50 rounded-xl w-64 top-0 text-center outline-6 outline-purple-950 p-10 m-8'>
           <img
             src={user.profilePicture}
             alt={user.username}
