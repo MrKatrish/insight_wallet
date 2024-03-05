@@ -18,14 +18,17 @@ const Dashboard = () => {
         <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96">
           {/* Main Content */}
           <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-2 grid-rows-3 gap-4">
-            {/* Tile 1 - Bar Chart */}
+            {/* Tile 1 - Pie Chart: Budget */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+              <h2>Your Monthly Budget</h2>
+              <Chart />
               <h2>Financial Overview</h2>
               <BarChart />
             </div>
             
             {/* Tile 2 - Currency Converter */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+             <h2>Currency Conversion</h2>
               <h2>Currency Converter</h2>
               <CurrencyConverter />
             </div>
@@ -35,8 +38,10 @@ const Dashboard = () => {
               {/* here add AddBudget component*/}
             </div>
 
-            {/* Tile 4 - Pie Chart */}
+            {/* Tile 4 - Bar Chart: Actual Spend */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+              <h2>Actual Spend</h2>
+              <BarChart />
               <h2>Monthly Budget</h2>
               <Chart />
             </div>
