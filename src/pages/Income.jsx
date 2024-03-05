@@ -28,7 +28,8 @@ function Income() {
     setIncomes([...incomes, { id: counter, title: '', amount: 0 }]);
   };
 
-  const handleIncomeChange = (id, value) => {
+  const handleIncomeChange = (id, e) => {
+    const value = e.target.value;
     let valueNumber = parseFloat(value);
     if (isNaN(valueNumber)) {
       valueNumber = 0;
