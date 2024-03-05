@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../Assets/logo.png'; // Upewnij się, że ścieżka wskazuje na właściwy plik graficzny z rozszerzeniem
+import logo from '../Assets/logo.png';
 
 export default function FormTitle({ title }) {
     return (
