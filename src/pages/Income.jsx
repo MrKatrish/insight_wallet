@@ -69,7 +69,7 @@ function Income() {
   return (
     <>
       <FormTitle title='Your Income:' />
-      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
        
       {incomes.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
@@ -89,9 +89,9 @@ function Income() {
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
-      <div className='flex p-2 justify-center'>
-        <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
-        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {totalIncome.toFixed(2)}</label>
+      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
+        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {totalIncome.toFixed(2)}</label>
       </div>
     </>
   );
