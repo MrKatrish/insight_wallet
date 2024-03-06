@@ -13,6 +13,9 @@ function Home() {
   const [newEmail, setNewEmail] = useState('');
 
   const [error, setError] = useState({ username: false, password: false });
+  const [newPasswordEmpty, setNewPasswordEmpty] = useState(false);
+  const [newUsernameEmpty, setNewUsernameEmpty] = useState(false);
+  const [newEmailEmpty, setNewEmailEmpty] = useState(false);
 
   // Function to handle login
   const handleLogin = (e) => {
@@ -48,6 +51,28 @@ function Home() {
   // Function to handle sign up
   const handleSignUp = (e) => {
     e.preventDefault();
+
+    let hasError = false;
+
+    if (!newUsername) {
+      setNewUsernameEmpty(true);
+      hasError = true
+    } 
+    
+    if (!newEmail) {
+      setNewPasswordEmpty(true);
+      hasError = true;
+    }
+    
+    if (!newPassword) {
+      setNewEmailEmpty(true);
+      hasError = true;
+    }
+
+    if (hasError) {
+      return;
+    }
+
     const account = { username: newUsername, password: newPassword, email: newEmail, incomes: [], budgets: [], savingsGoals: [] };
     localStorage.setItem(newUsername, JSON.stringify(account));
     localStorage.setItem('currentUser', newUsername);
@@ -89,9 +114,9 @@ function Home() {
 
         {/* Sign Up Form */}
         <form onSubmit={handleSignUp}>
-          <SignUpInput id='newUsername' type='text' placeholder='New Username' value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
-          <SignUpInput id='newPassword' type='password' placeholder='New Password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-          <SignUpInput id='newEmail' type='email' placeholder='Your Email Address' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+          <SignUpInput id='newUsername' type='text' placeholder='New Username' isEmpty={newUsernameEmpty} value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
+          <SignUpInput id='newPassword' type='password' placeholder='New Password' isEmpty={newPasswordEmpty} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+          <SignUpInput id='newEmail' type='email' placeholder='Your Email Address' isEmpty={newEmailEmpty} value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
           <FormButton title='Sign Up' />
         </form>
       </div>
