@@ -38,9 +38,9 @@ const Dashboard = () => {
               <h2 className="text-2xl text-left mb-2">Something Goes Here</h2>
             </div>
 
-            {/* Tile 4 - PieChart: Budget */}
+            {/* Tile 4 - PieChart: Income */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-              <h2 className="text-2xl text-left mb-2">Your Monthly Budget</h2>
+              <h2 className="text-2xl text-left mb-2">Your Income Streams</h2>
               <Chart />
             </div>
 
