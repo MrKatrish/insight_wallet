@@ -12,71 +12,54 @@ function LastTranctions() {
 
       
         <>
-        <h1 className="m-5">Last Transations</h1>
-        <div className="flex p-2 justify-center">
+        <div className=" grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <AiOutlineShoppingCart className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">Tesco</span>
-            <span className="text-gray-500">£69.69</span>
-          </div>
+          <AiOutlineShoppingCart className="w-6 h-6 mr-2 col-span-1" />
+          <span className="text-lg font-medium col-span-1">Tesco</span>
+          <span className="text-gray-500 col-span-1">£69.69</span>
 
         </div>
-        <div className="flex p-2 justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <AiFillApple  className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">iCloud</span>
-            <span className="text-gray-500">£9.99</span>
-          </div>
+
+          <AiFillApple  className="w-6 h-6 mr-2 col-span-1" />
+          <span className="text-lg font-medium col-span-1">iCloud</span>
+          <span className="text-gray-500 col-span-1">£9.99</span>
 
         </div>
-        <div className="flex p-2 justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <AiFillAmazonCircle className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">Amazon UK</span>
-            <span className="text-gray-500">£17.99</span>
-          </div>
+
+          <AiFillAmazonCircle className="w-6 h-6 mr-2 col-span-1" />
+          <span className="text-lg font-medium col-span-1">Amazon UK</span>
+          <span className="text-gray-500 col-span-1">£17.99</span>
+
 
         </div>
-        <div className="flex p-2 justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <AiFillCar  className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">Tesco Petrol</span>
-            <span className="text-gray-500">£72.15</span>
-          </div>
+          <AiFillCar  className="w-6 h-6 mr-2 col-span-1" />
+          <span className="text-lg font-medium col-span-1">Tesco Petrol</span>
+          <span className="text-gray-500 col-span-1">£72.15</span>
+
 
         </div>
-        <div className="flex p-2 justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <CgAdidas className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">Adidas Shop UK</span>
-            <span className="text-gray-500">£119.99</span>
-          </div>
+
+          <CgAdidas className="w-6 h-6 mr-2 col-span-1" />
+          <span className="text-lg font-medium col-span-1">Adidas</span>
+          <span className="text-gray-500 col-span-1">£119.99</span>
+
 
         </div>
-        <div className="flex p-2 justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
-          <div className="flex items-center">
-            <CgAirplane className="w-6 h-6 mr-2" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-medium">Wizz Air</span>
-            <span className="text-gray-500">£1359.97</span>
-          </div>
+
+            <CgAirplane className="w-6 h-6 mr-2 col-span-" />
+            <span className="text-lg font-medium col-span-">Wizz Air</span>
+            <span className="text-gray-500 col-span-">£1359.97</span>
+
 
         </div>
       </>

@@ -13,7 +13,6 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
-  Title,
   Tooltip,
   Legend
 );
@@ -21,7 +20,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top'
+      position: 'bottom'
     },
     title: {
       display: true,
@@ -59,11 +58,10 @@ export function generateChartData() {
       ? userData.budgets.map(budget => ({
           label: budget.title,
           data: [budget.amount],
-          backgroundColor: getRandomColor(), // Adjust color based on your preferences
+          backgroundColor: getRandomColor(), // Adjust bar color 
         }))
       : [];
     const labels = ['']; // Include budget item labels
-    console.log(labels);
     const datasets = [
       {
         label: 'Total Income',
@@ -72,20 +70,23 @@ export function generateChartData() {
       },
       ...budgetData,
     ];
-    console.log(datasets);
     return {
       labels,
       datasets,
     };
   }
-  return {    labels,
-    datasets: datasets,};
+  return {    
+    labels: [],
+    datasets: []
+  };
 }
 export default function BarChart() {
   const [chartData, setChartData] = useState(generateChartData());
+
   useEffect(() => {
     setChartData(generateChartData());
   }, []);
+
   return (
     <div>
       <h1 className="">Overall Finance Budget</h1>
