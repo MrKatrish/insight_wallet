@@ -13,14 +13,14 @@ function LastTranctions() {
       
         <>
         {/* <h1 className="m-5">Last Transations</h1> */}
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
           <AiOutlineShoppingCart className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco</span>
           <span className="text-gray-500 col-span-1">£69.69</span>
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
 
           <AiFillApple  className="w-6 h-6 mr-2 col-span-1" />
@@ -28,7 +28,7 @@ function LastTranctions() {
           <span className="text-gray-500 col-span-1">£9.99</span>
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
 
           <AiFillAmazonCircle className="w-6 h-6 mr-2 col-span-1" />
@@ -37,7 +37,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
           <AiFillCar  className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco Petrol</span>
@@ -45,7 +45,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
 
           <CgAdidas className="w-6 h-6 mr-2 col-span-1" />
@@ -54,7 +54,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4">
           
 
             <CgAirplane className="w-6 h-6 mr-2 col-span-" />
