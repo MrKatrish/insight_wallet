@@ -89,7 +89,6 @@ export default function BarChart() {
 
   return (
     <div>
-      <h1 className="">Overall Finance Budget</h1>
     <Bar
       options={options}
       data={chartData}
