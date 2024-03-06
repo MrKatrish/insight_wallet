@@ -1,19 +1,74 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import UserInput from '../components/UserInput';
+import FormTitle from '../components/FormTitle';
+import FormButton from '../components/FormButton';
+import profileImage from "../Assets/jonas-kakaroto.jpg";
 import MyCalendar from './ExternalCalendar';
 import { TbMoneybag } from "react-icons/tb";
 import { GiReceiveMoney } from "react-icons/gi";
 import { TbZoomMoney } from "react-icons/tb";
 
+function Income() {
+  const navigate = useNavigate();
 
+  const [incomes, setIncomes] = useState([
+    {id: 1, title: 'Salary', amount: 0},
+    {id: 2, title: 'Side Hustle', amount: 0},
+    {id: 3, title: 'Other', amount: 0}
+  ]);
+  const [counter, setCounter] = useState(4);
+  const [totalIncome, setTotalIncome] = useState(0);
 
+  useEffect(() => {
+    const totalSum = incomes
+      .map((income) => income.amount)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-const Sidebar = () => {
+    setTotalIncome(totalSum);
+  }, [incomes]);
 
-  const user = {
-    username: "John",
-    profilePicture: profileImage,
+  const handleAddIncomes = () => {
+    setCounter(p => p + 1);
+    setIncomes([...incomes, { id: counter, title: '', amount: 0 }]);
+  };
+
+  const handleIncomeChange = (id, e) => {
+    const value = e.target.value;
+    let valueNumber = parseFloat(value);
+    if (isNaN(valueNumber)) {
+      valueNumber = 0;
+    }
+
+    setIncomes(incomes.map((income) =>
+      income.id === id ? { ...income, amount: valueNumber } : income
+    ));
+  };
+
+  const handleIncomeTitleChange = (id, e) => {
+    const { value } = e.target;
+  
+    setIncomes(incomes.map((income) => {
+      if (income.id === id) {
+        const amount = incomes.find(item => item.id === id)?.amount || 0;
+        return { ...income, title: value, amount };
+      }
+      return income;
+    }));
+  };
+
+  const handleDelete = (id) => {
+    setIncomes(incomes.filter((income) => income.id !== id));
+  }
+
+  const handleSubmit = () => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
+      userData.incomes = incomes;
+      localStorage.setItem(currentUser, JSON.stringify(userData));
+    }
+    navigate('/budget');
   };
 
   return (
@@ -60,5 +115,12 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
+        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {totalIncome.toFixed(2)}</label>
+      </div>
+    </>
+  );
+}
 
+export default Income;
