@@ -17,7 +17,7 @@ const Sidebar = () => {
       <div className='bg-slate-300 bg-opacity-30 rounded-xl w-72 top-0 text-center p-10 m-8 col-span-1 mt-40'>
           <img
             src={user.profilePicture}
-            className="w-40 h-40 rounded-full mx-auto"
+            className="w-40 h-40 rounded-full mx-auto mb-4"
           />
           <h2 className="mb-2 font-semibold">{user.username}</h2>
           <h3 className="text-lg font-bold">Welcome to your dashboard!</h3>
