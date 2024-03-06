@@ -24,11 +24,11 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top'
+      position: 'bottom'
     },
     title: {
       display: true,
-      text: 'Overall Finance Budget',
+      text: '',
     },
   },
 };
@@ -57,7 +57,7 @@ export const data = {
 };
 
 function BarChart() {
-  return <Bar className="mt-10" options={options} data={data} />;
+  return <Bar className="mt-8" data={data} options={options}/>;
 }
 
 export default BarChart;

@@ -12,8 +12,7 @@ function LastTranctions() {
 
       
         <>
-        {/* <h1 className="m-5">Last Transations</h1> */}
-        <div className="grid grid-cols-3 grid-rows-1 mb-4">
+        <div className=" grid grid-cols-3 grid-rows-1 mb-4">
           
           <AiOutlineShoppingCart className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco</span>
