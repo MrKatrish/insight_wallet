@@ -12,14 +12,14 @@ function LastTranctions() {
 
       
         <>
-        <div className=" grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className=" grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
           <AiOutlineShoppingCart className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco</span>
           <span className="text-gray-500 col-span-1">£69.69</span>
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
 
           <AiFillApple  className="w-6 h-6 mr-2 col-span-1" />
@@ -27,7 +27,7 @@ function LastTranctions() {
           <span className="text-gray-500 col-span-1">£9.99</span>
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
 
           <AiFillAmazonCircle className="w-6 h-6 mr-2 col-span-1" />
@@ -36,7 +36,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
           <AiFillCar  className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco Petrol</span>
@@ -44,7 +44,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
 
           <CgAdidas className="w-6 h-6 mr-2 col-span-1" />
@@ -53,7 +53,7 @@ function LastTranctions() {
 
 
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
 
             <CgAirplane className="w-6 h-6 mr-2 col-span-" />
