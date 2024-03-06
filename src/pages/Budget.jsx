@@ -10,10 +10,9 @@ function Budget() {
     { id: 1, title: 'Rent', amount: 0 },
     { id: 2, title: 'Bills', amount: 0 },
     { id: 3, title: 'Groceries', amount: 0 },
-    { id: 4, title: 'Savings', amount: 0 },
-    { id: 5, title: 'Investments', amount: 0 }
+    { id: 4, title: 'Investments', amount: 0 }
   ]);
-  const [counter, setCounter] = useState(6);
+  const [counter, setCounter] = useState(5);
   const [totalBudget, setTotalBudget] = useState(0);
 
   useEffect(() => {

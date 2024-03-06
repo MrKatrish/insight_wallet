@@ -81,15 +81,15 @@ export function generateChartData() {
   };
 }
 export default function BarChart() {
+  const currentUser = localStorage.getItem('currentUser');
   const [chartData, setChartData] = useState(generateChartData());
 
   useEffect(() => {
     setChartData(generateChartData());
-  }, []);
+  }, [currentUser]);
 
   return (
     <div>
-      <h1 className="">Overall Finance Budget</h1>
     <Bar
       options={options}
       data={chartData}
