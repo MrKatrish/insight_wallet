@@ -3,7 +3,6 @@ import FormButton from './FormButton';
 import UserInput from '../components/UserInput';
 
 function DisplayBudget() {
-  // State variables
   const [userData, setUserData] = useState(loadUserData());
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -91,7 +90,7 @@ function DisplayBudget() {
   return (
     <div>
       <div className='flex flex-col items-center'>
-        <h3>Your Perfect Budget</h3>
+        <h3>Perfection to Your Budget</h3>
         {/* Map over user budgets and render UserInput component */}
         {userData &&
           userData.budgets &&
@@ -108,7 +107,7 @@ function DisplayBudget() {
             </div>
           ))}
       </div>
-      {/* Buttons for adding new budget item and saving changes */}
+
       <div className='flex justify-center mt-8'>
         <FormButton onClick={handleAddBudgets} title='Add new budget item' />
         <FormButton onClick={handleSubmit} title='Save' />
