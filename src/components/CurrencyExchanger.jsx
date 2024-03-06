@@ -115,8 +115,8 @@ const CurrencyExchanger = () => {
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
-          style={{ width: '300px' }}
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
+          style={{ width: '250px' }}
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -128,15 +128,16 @@ const CurrencyExchanger = () => {
           type="number"
           value={amount}
           onChange={handleAmountChange}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
+          style={{ width: '80px' }}
         />
       </div>
       <div className="flex items-center mt-4">
         <select
           value={toCurrency}
           onChange={(e) => setToCurrency(e.target.value)}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
-          style={{ width: '300px' }}
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
+          style={{ width: '250px' }}
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -146,9 +147,10 @@ const CurrencyExchanger = () => {
         </select>
         <input
           type="text"
-          value={`${result} ${toCurrency}`}
+          value={`${result}`}
           readOnly
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
+          style={{ width: '80px' }}
         />
       </div>
       <div className="mt-4">
