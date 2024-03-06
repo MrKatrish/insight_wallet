@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
 import MyCalendar from './ExternalCalendar';
 
+
 const Sidebar = () => {
   const user = {
     username: "John",
@@ -39,23 +40,23 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            to="/budget"
+            to="/Budget"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
           >Budget</Link>
         </li>
         <li>
           <Link
-            to="/savingsgoals"
+            to="/SavingsGoals"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
           >Saving Goals</Link>
         </li>
         <li>
-          <Link
+          {/* <Link
             to="/goals"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
           >
             Account
-          </Link>
+          </Link> */}
         </li>
       </ul>
     </div>
