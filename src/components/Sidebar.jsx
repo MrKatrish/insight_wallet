@@ -19,12 +19,15 @@ const Sidebar = () => {
   return (
     <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 items-center justify-center">
       {/* User Profile Section */}
-      <div className='bg-slate-300 bg-opacity-30 rounded-xl w-72 top-0 text-center p-10 m-8 col-span-1 mt-40'>
+      <div className='bg-purple-900 bg-opacity-30 rounded-xl w-72 text-center p-2 m-8 col-span-1 grid grid-cols-2 grid-rows-1 mt-0 shadow-lg'>
           <img
             src={user.profilePicture}
-            className="w-40 h-40 rounded-full mx-auto mb-4"
+            className=" outline-blue-950 shadow-xl w-24 h-24 rounded-full mx-auto mb-1 mt-2 ml-2"
           />
-          <h2 className="mb-2 font-semibold">Welcome back {user.username}!</h2>
+          <div> 
+            <h2 className="mb-2 font-semibold mt-6 text-left">Hi {user.username}, </h2>
+            <h3 className="mb-2 text-left">Welcome to your dashboard!</h3>
+          </div>
       </div>
       
       {/* Navigation Links */}
