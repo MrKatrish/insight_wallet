@@ -42,17 +42,17 @@ export const data = {
     {
       label: 'Total Income',
       data: [(userData.salary + userData.sideHustles + userData.sideHustles + userData.otherIncome)],
-      backgroundColor: 'purple',
+      backgroundColor: 'rgba(153, 102, 255, 1)',
     },
     {
       label: 'Total Expediture Budget',
       data: [(userData.rent + userData.bills + userData.groceries + userData.savings + userData.investments)],
-      backgroundColor: 'yellow',
+      backgroundColor: 'rgba(255, 206, 86, 1)',
     },
     {
         label: 'Total Savings Goals',
         data: [(userData.holidays + userData.car + userData.laptop)],
-        backgroundColor: 'red',
+        backgroundColor: 'rgba(54, 162, 235, 1)',
       }
   ],
 };
