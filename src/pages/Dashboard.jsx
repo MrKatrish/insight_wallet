@@ -16,7 +16,7 @@ const Dashboard = () => {
         <Sidebar className="col-span-1" />
 
         {/* Main Content Wrapper */}
-        <div className="sideBar fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
+        <div className="sideBar main-content-wrapper fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
 
           {/* Main Content */}
           <h1 className="col-span-3 text-left mb-4">Dashboard</h1>
