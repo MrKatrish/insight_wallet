@@ -18,10 +18,10 @@ const Dashboard = () => {
         <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96">
           {/* Main Content */}
 
-          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-2 grid-rows-6 gap-4">
+          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-6 gap-4">
 
             {/* Tile 1 - BarChart: Finance Overview */}
-            <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <div className="bg-white rounded-xl shadow-md p-4 col-span-2">
               <h2>Financial Overview</h2>
               <BarChart />
             </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
             </div>
 
             {/* Tile 6 - Savings Goals (Placeholder) */}
-            <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            <div className="bg-white rounded-xl shadow-md p-4 col-span-3">
               <h2>Savings Progress</h2>
               {/* here add SavingsGoals component*/}
             </div>
