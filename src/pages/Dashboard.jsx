@@ -22,7 +22,8 @@ const Dashboard = () => {
           <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-3 gap-4">
             {/* Tile 1 - BarChart: Finance Overview */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-2">
-              <h2 className="text-2xl text-left mb-2">Financial Overview</h2>
+              <h2 className="text-2xl text-left">Financial Overview</h2>
+              <p className="text-left mb-2 text-gray-700">Income versus budgeted spend</p>
               <BarChart />
             </div>
 
@@ -40,7 +41,8 @@ const Dashboard = () => {
 
             {/* Tile 4 - PieChart: Income */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-              <h2 className="text-2xl text-left mb-2">Your Income Streams</h2>
+              <h2 className="text-2xl text-left">Income</h2>
+              <p className="text-left mb-2 text-gray-700">Sources of income</p>
               <Chart />
             </div>
 
