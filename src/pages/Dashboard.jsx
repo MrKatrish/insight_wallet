@@ -36,6 +36,8 @@ const Dashboard = () => {
             {/* Tile 3 - Add Budget (Placeholder) */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               {/* here add AddBudget component*/}
+              <h2 className="text-2xl text-left mb-2">Something Goes Here</h2>
+
             </div>
 
             {/* Tile 4 - PieChart: Budget */}
@@ -46,7 +48,7 @@ const Dashboard = () => {
 
             {/* Tile 5 - Last Transactions */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-              <h2 className="text-2xl text-left mb-2">Latest Transactions</h2>
+              <h2 className="text-2xl text-left mb-10">Latest Transactions</h2>
               <LastTransactions />
             </div>
 

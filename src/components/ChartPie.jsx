@@ -42,7 +42,7 @@ const doughnutLabel = {
         //text
         ctx.save();
         ctx.textAlign = 'center';
-        ctx.font = '50px';
+        ctx.font = '100px';
         ctx.fillStyle = 'black';
         ctx.textBaseline = 'middle';
         ctx.fillText(`Total Income: £${userData.salary}`, centerX, centerY);
