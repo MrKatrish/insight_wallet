@@ -25,38 +25,25 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation Links */}
-      <ul>
-        <li>
+      <ul className="col-span-1 text-center mt-2 mb-22 grid grid-rows-4">
+      <h3 className="mb-2 font-semibold col-span-1">Need to make changes?</h3>
+      <li className="mb-1">
           <Link
-            to="/overview"
+            to="/Income"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
-          >
-            <i className="fas fa-home mr-2"></i>Dashboard
-          </Link>
+          >Income</Link>
         </li>
         <li>
           <Link
-            to="/reports"
+            to="/budget"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
-          >
-            Analytics
-          </Link>
+          >Budget</Link>
         </li>
         <li>
           <Link
-            to="/transactions"
+            to="/savingsgoals"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
-          >
-            Transactions
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/goals"
-            className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
-          >
-            Account
-          </Link>
+          >Saving Goals</Link>
         </li>
       </ul>
     </div>
