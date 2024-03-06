@@ -5,21 +5,21 @@ import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
-import { FaBeer } from "react-icons/fa";
+
 // add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
   return (
     <>
-      <div className="flex h-screen">
+      <div className="grid grid-cols-4 grid-row-1 gap-4">
         {/* Sidebar */}
-        <Sidebar />
+        <Sidebar className="col-span-1"/>
 
         {/* Main Content Wrapper */}
-        <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96">
+        <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
           {/* Main Content */}
 
-          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-6 gap-4">
+          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-3 gap-4">
 
             {/* Tile 1 - BarChart: Finance Overview */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-2">

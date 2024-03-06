@@ -12,7 +12,7 @@ import { TbZoomMoney } from "react-icons/tb";
 const Sidebar = () => {
 
   const user = {
-    username: "John Doe",
+    username: "John",
     profilePicture: profileImage,
   };
 
@@ -24,8 +24,7 @@ const Sidebar = () => {
             src={user.profilePicture}
             className="w-40 h-40 rounded-full mx-auto mb-4"
           />
-          <h2 className="mb-2 font-semibold">{user.username} </h2>
-          <h3 className="text-lg font-bold">Welcome to your dashboard!</h3>
+          <h2 className="mb-2 font-semibold">Welcome back {user.username}!</h2>
       </div>
       
       {/* Navigation Links */}
