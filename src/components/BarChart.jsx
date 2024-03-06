@@ -16,7 +16,6 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
-  Title,
   Tooltip,
   Legend
 );
@@ -58,7 +57,7 @@ export const data = {
 };
 
 function BarChart() {
-  return <Bar options={options} data={data} />;
+  return <Bar className="mt-10" options={options} data={data} />;
 }
 
 export default BarChart;
