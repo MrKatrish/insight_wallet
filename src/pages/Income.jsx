@@ -1,116 +1,98 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Income.css';
 import UserInput from '../components/UserInput';
-import FormTitle from './FormTitle';
+import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
 
-function Income({ updateUserData }) {
+function Income() {
   const navigate = useNavigate();
-  const [income, setIncome] = useState({ salary: '', sideHustle: '', other: '', additionalIncome: [] });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setIncome(prevIncome => ({
-      ...prevIncome,
-      [name]: value
+  const [incomes, setIncomes] = useState([
+    {id: 1, title: 'Salary', amount: 0},
+    {id: 2, title: 'Side Hustle', amount: 0},
+    {id: 3, title: 'Other', amount: 0}
+  ]);
+  const [counter, setCounter] = useState(4);
+  const [totalIncome, setTotalIncome] = useState(0);
+
+  useEffect(() => {
+    const totalSum = incomes
+      .map((income) => income.amount)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    setTotalIncome(totalSum);
+  }, [incomes]);
+
+  const handleAddIncomes = () => {
+    setCounter(p => p + 1);
+    setIncomes([...incomes, { id: counter, title: '', amount: 0 }]);
+  };
+
+  const handleIncomeChange = (id, e) => {
+    const value = e.target.value;
+    let valueNumber = parseFloat(value);
+    if (isNaN(valueNumber)) {
+      valueNumber = 0;
+    }
+
+    setIncomes(incomes.map((income) =>
+      income.id === id ? { ...income, amount: valueNumber } : income
+    ));
+  };
+
+  const handleIncomeTitleChange = (id, e) => {
+    const { value } = e.target;
+  
+    setIncomes(incomes.map((income) => {
+      if (income.id === id) {
+        const amount = incomes.find(item => item.id === id)?.amount || 0;
+        return { ...income, title: value, amount };
+      }
+      return income;
     }));
   };
 
-
-   const handleAddIncome = () => {
-    setIncome(prevIncome => ({
-      ...prevIncome,
-      additionalIncome: [...prevIncome.additionalIncome, { title: '', amount: '' }]
-    }));
-  };
-
-  const handleAdditionalIncomeChange = (index, e) => {
-    const { name, value } = e.target;
-    setIncome(prevIncome => ({
-      ...prevIncome,
-      additionalIncome: prevIncome.additionalIncome.map((item, i) =>
-        i === index ? { ...item, [name]: value } : item
-      )
-    }));
-  };
-
+  const handleDelete = (id) => {
+    setIncomes(incomes.filter((income) => income.id !== id));
+  }
 
   const handleSubmit = () => {
-    updateUserData({ income });
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
+      userData.incomes = incomes;
+      localStorage.setItem(currentUser, JSON.stringify(userData));
+    }
     navigate('/budget');
   };
 
   return (
     <>
       <FormTitle title='Your Income:' />
-      <UserInput incomeTitle='Salary' value={income.salary} handleChange={handleChange}/>
-      <UserInput incomeTitle='Side Hustle' income={income.salary} handleChange={handleChange}/>
-      <UserInput incomeTitle='Other' income={income.salary} handleChange={handleChange}/>
-      <UserInput incomeTitle='+' income={income.salary} handleChange={handleChange}/>
-      <FormButton onClick={handleSubmit} title='Next' />
-      <h1 className="mb-10">Your Income:</h1>
-
-      <div className="flex p-2 justify-start">
-        <label htmlFor="salary" className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 incomeTitle">Salary</label>
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-            <span className="text-gray-500 sm:text-md">£</span>
-          </div>
-          <input type="number" name="salary" className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black-300 sm:text-md sm:leading-6" placeholder="0.00" value={income.salary} onChange={handleChange} />
-        </div>
-      </div>
-
-            <div className="flex p-2 justify-start">
-                <label htmlFor="salary" className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 incomeTitle">Side Hustle</label>
-                <div className="relative">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <span className="text-gray-500 sm:text-md">£</span>
-                    </div>
-                    <input type="number" name="price" className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black-300 sm:text-md sm:leading-6" placeholder="0.00" />
-                </div>
-            </div>
-
-            <div className="flex p-2 justify-start">
-                <label htmlFor="salary" className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 incomeTitle">Other</label>
-                <div className="relative">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <span className="text-gray-500 sm:text-md">£</span>
-                    </div>
-                    <input type="number" name="price" className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black-300 sm:text-md sm:leading-6" placeholder="0.00" />
-                </div>
-            </div>
-
-      {income.additionalIncome && income.additionalIncome.map((item, index) => (
-        <div key={index} className="flex p-2 justify-start">
-          <label htmlFor={`title${index}`} className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-48 incomeTitle">Title</label>
-          <input
-            type="text"
-            name={`additionalIncome[${index}].title`}
-            id={`title${index}`}
-            className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black-300 sm:text-md sm:leading-6"
-            placeholder="Income source"
-            onChange={(e) => handleAdditionalIncomeChange(index, e)}
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
+       
+      {incomes.map((item, index) => (
+        <div key={index} className="flex p-2 justify-center">
+          <UserInput
+            labelTitle={item.title}
+            labelAmount={item.amount}
+            id={item.id}
+            handleChange={handleIncomeChange}
+            handleLabelTitleChange={handleIncomeTitleChange}
+            handleDelete={handleDelete}
           />
-
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <span className="text-gray-500 sm:text-md">£</span>
-            </div>
-            <input
-              type="number"
-              name={`additionalIncome[${index}].amount`}
-              className="rounded-3xl border-0 py-4 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black-300 sm:text-md sm:leading-6"
-              placeholder="0.00" 
-              onChange={(e) => handleAdditionalIncomeChange(index, e)}
-            />
-          </div>
         </div>
       ))}
 
-            <button className="button" onClick={handleAddIncome}>Add new income</button>
+      <div className='flex flex-row justify-center'>
+        <FormButton onClick={handleAddIncomes} title='Add new income' />
+        <FormButton onClick={handleSubmit} title='Next' />
+      </div>
 
-            <button className="button" onClick={handleSubmit}>Next</button>
+      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
+        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {totalIncome.toFixed(2)}</label>
+      </div>
     </>
   );
 }

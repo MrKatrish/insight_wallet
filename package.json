@@ -11,12 +11,25 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "axios": "^1.6.7",
+    "body-parser": "^1.20.2",
+    "chart.js": "^4.4.2",
     "chartjs": "^0.3.24",
+    "circle-flags": "github:HatScripts/circle-flags",
+    "datasette": "^1.0.1",
+    "express": "^4.18.3",
+    "flaschenpost": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
+    "react-calendar": "^4.8.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.1",
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "ws": "^8.16.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -8,3 +8,7 @@
   body {
     background-color: var(--light-pink);
   }
+
+  .container {
+    display: flex;
+  }
