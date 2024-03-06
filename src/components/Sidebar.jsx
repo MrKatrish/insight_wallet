@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
+import MyCalendar from './ExternalCalendar';
 
 const Sidebar = () => {
   const user = {
@@ -9,7 +10,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-6 items-center justify-center">
+    <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 items-center justify-center">
       {/* User Profile Section */}
       <div className="bg-purple-900 bg-opacity-30 rounded-xl w-72 text-center p-2 m-8 col-span-1 grid grid-cols-2 grid-rows-1 mt-24 shadow-lg">
         <img
@@ -23,6 +24,9 @@ const Sidebar = () => {
           <h3 className="mb-2 text-left">Welcome back!</h3>
         </div>
       </div>
+
+      {/* Calendar Widget */} {/*Still need to add better UI version from react calendars*/}
+      <MyCalendar className="col-span-1 mt-20 mb-20" />
 
       {/* Navigation Links */}
       <ul className="col-span-1 text-center mt-2 mb-22 grid grid-rows-4">
@@ -44,6 +48,14 @@ const Sidebar = () => {
             to="/savingsgoals"
             className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
           >Saving Goals</Link>
+        </li>
+        <li>
+          <Link
+            to="/goals"
+            className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"
+          >
+            Account
+          </Link>
         </li>
       </ul>
     </div>
