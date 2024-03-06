@@ -111,7 +111,8 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center mt-10 mb-10">
+
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
@@ -132,6 +133,8 @@ const CurrencyExchanger = () => {
           style={{ width: '80px' }}
         />
       </div>
+
+
       <div className="flex items-center mt-4">
         <select
           value={toCurrency}
@@ -153,7 +156,7 @@ const CurrencyExchanger = () => {
           style={{ width: '80px' }}
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-10">
         <button
           onClick={handleToggle}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
