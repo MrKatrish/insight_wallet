@@ -2,24 +2,36 @@ import React, { useState } from 'react';
 import FormButton from '../components/FormButton';
 
 function DisplayBudget() {
+  // State variables for expenditure
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
+
+  // State variables for income
   const [titleIncome, setTitleIncome] = useState('');
   const [income, setIncome] = useState('');
 
+  // Function to handle submission of expenditure
   const handleSubmit = () => {
+    // Create a new budget object with user input
     const newBudget = {
       title: title,
       amount: parseFloat(amount) || 0
     };
   
+    // Retrieve current user data from localStorage
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(localStorage.getItem(currentUser));
+      
+      // Initialize budgets array if it doesn't exist
       if (!userData.budgets) {
         userData.budgets = [];
       }
+      
+      // Add the new budget to the budgets array
       userData.budgets.push(newBudget);
+      
+      // Save the updated user data back to localStorage
       localStorage.setItem(currentUser, JSON.stringify(userData));
     }
   
@@ -28,19 +40,28 @@ function DisplayBudget() {
     setAmount('');
   };
   
+  // Function to handle submission of income
   const handleSubmitIncome = () => {
+    // Create a new income object with user input
     const newIncome = {
       title: titleIncome,
       income: parseFloat(income) || 0
     };
   
+    // Retrieve current user data from localStorage
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(localStorage.getItem(currentUser));
+      
+      // Initialize incomes array if it doesn't exist
       if (!userData.incomes) {
         userData.incomes = [];
       }
+      
+      // Add the new income to the incomes array
       userData.incomes.push(newIncome);
+      
+      // Save the updated user data back to localStorage
       localStorage.setItem(currentUser, JSON.stringify(userData));
     }
   
@@ -53,6 +74,7 @@ function DisplayBudget() {
   return (
     <>
       <div className='flex flex-col items-center mt-8'>
+        {/* Input fields for expenditure */}
         <input
           type='text'
           placeholder='Expenditure Title'
@@ -67,7 +89,10 @@ function DisplayBudget() {
           onChange={(e) => setAmount(e.target.value)}
           className='border-2 border-gray-300 rounded-md p-2 mb-4'
         />
+        {/* Button to add expenditure */}
         <FormButton onClick={() => handleSubmit('budget')} title='Add Expenditure' />
+        
+        {/* Input fields for income */}
         <input
           type='text'
           placeholder='Income Title'
@@ -82,6 +107,7 @@ function DisplayBudget() {
           onChange={(e) => setIncome(e.target.value)}
           className='border-2 border-gray-300 rounded-md p-2 mb-4'
         />
+        {/* Button to add income */}
         <FormButton onClick={() => handleSubmitIncome('income')} title='Add Income' />
       </div>
     </>
