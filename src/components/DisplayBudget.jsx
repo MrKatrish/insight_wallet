@@ -3,15 +3,18 @@ import FormButton from './FormButton';
 import UserInput from '../components/UserInput';
 
 function DisplayBudget() {
+  // State variables
   const [userData, setUserData] = useState(loadUserData());
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [counter, setCounter] = useState(0);
 
+  // Effect to update userData on component mount
   useEffect(() => {
     setUserData(loadUserData());
   }, []); // Update userData on component mount
 
+  // Function to load user data from local storage
   function loadUserData() {
     const currentUser = localStorage.getItem('currentUser');
     if (!currentUser) {
@@ -25,9 +28,11 @@ function DisplayBudget() {
     return userData;
   }
 
+  // Function to handle form submission
   const handleSubmit = () => {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
+      // Update user data and local storage
       const updatedUserData = {
         ...userData,
         budgets: userData.budgets.map((budget) =>
@@ -41,6 +46,7 @@ function DisplayBudget() {
     }
   };
 
+  // Function to handle budget amount change
   const handleBudgetChange = (id, e) => {
     const value = e.target.value;
     setUserData((prevUserData) => ({
@@ -51,6 +57,7 @@ function DisplayBudget() {
     }));
   };
 
+  // Function to add new budget item
   const handleAddBudgets = () => {
     setCounter((prevCounter) => prevCounter + 1);
     setUserData((prevUserData) => ({
@@ -62,6 +69,7 @@ function DisplayBudget() {
     }));
   };
 
+  // Function to handle budget title change
   const handleBudgetTitleChange = (id, newTitle) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -71,6 +79,7 @@ function DisplayBudget() {
     }));
   };
 
+  // Function to handle budget item deletion
   const handleDelete = (id) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -78,10 +87,12 @@ function DisplayBudget() {
     }));
   };
 
+  // JSX rendering
   return (
-    <div >
+    <div>
       <div className='flex flex-col items-center'>
         <h3>Your Perfect Budget</h3>
+        {/* Map over user budgets and render UserInput component */}
         {userData &&
           userData.budgets &&
           userData.budgets.map((item) => (
@@ -95,8 +106,9 @@ function DisplayBudget() {
                 handleDelete={handleDelete}
               />
             </div>
-          ))}        
+          ))}
       </div>
+      {/* Buttons for adding new budget item and saving changes */}
       <div className='flex justify-center mt-8'>
         <FormButton onClick={handleAddBudgets} title='Add new budget item' />
         <FormButton onClick={handleSubmit} title='Save' />
