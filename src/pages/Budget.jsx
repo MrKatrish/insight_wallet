@@ -48,7 +48,9 @@ function Budget() {
     navigate('/savingsgoals');
   };
 
-  const handleBudgetTitleChange = (id, newTitle) => {
+  const handleBudgetTitleChange = (id, e) => {
+    const newTitle = e.target.value;
+  
     setBudgets(previous => previous.map(budget => {
       if (budget.id === id) {
         return { ...budget, title: newTitle };
@@ -64,7 +66,7 @@ function Budget() {
   return (
     <>
       <FormTitle title='Your Expenditure Budget:' />
-      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Allocate funds to different categories such as housing, utilities, entertainment, and more. Simply input your estimated spending for each category, and our finance tracker will help you stay on top of your financial goals.</p>
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Allocate funds to different categories such as housing, utilities, entertainment, and more. Simply input your estimated spending for each category, and our finance tracker will help you stay on top of your financial goals.</p>
 
       {budgets.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
@@ -84,9 +86,9 @@ function Budget() {
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
-      <div className='flex p-2 justify-center'>
-        <label className="text-lg font-medium leading-10 px-20 py-2 mx-5 border-0 ring-1 ring-inset ring-customPurple w-48 bg-white rounded-3xl">Total</label>
-        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-64 bg-white rounded-3xl">£ {typeof totalBudget === 'number' ? totalBudget.toFixed(2) : '0.00'}</label>
+      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
+        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {typeof totalBudget === 'number' ? totalBudget.toFixed(2) : '0.00'}</label>
       </div>
     </>
   );

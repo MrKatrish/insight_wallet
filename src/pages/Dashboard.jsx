@@ -28,6 +28,7 @@ const Dashboard = () => {
           </div>
 
           {/* Tile 3 - Add Budget */}
+          {/* Tile 3 - Add Budget */}
           <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
             <DisplayBudget />
           </div>
@@ -42,9 +43,8 @@ const Dashboard = () => {
             <LastTransactions />
           </div>
 
-          {/* Tile 6 - Savings Goals (Placeholder) */}
+          {/* Tile 6 - Savings Goals */}
           <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-            {/* here add SavingsGoals componendt*/}
           </div>
         </div>
       </div>
