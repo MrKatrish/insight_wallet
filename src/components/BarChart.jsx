@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,9 +9,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import userData from '../assets/userData.json'
-
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -19,7 +16,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 export const options = {
   responsive: true,
   plugins: {
@@ -32,32 +28,72 @@ export const options = {
     },
   },
 };
-
-const labels = ['Overall Finance Budget'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Total Income',
-      data: [(userData.salary + userData.sideHustles + userData.sideHustles + userData.otherIncome)],
-      backgroundColor: 'rgba(255, 99, 132, 1',
-    },
-    {
-      label: 'Total Expenditure Budget',
-      data: [(userData.rent + userData.bills + userData.groceries + userData.savings + userData.investments)],
-      backgroundColor: 'rgba(255, 206, 86, 1)',
-    },
-    {
-        label: 'Total Savings Goals',
-        data: [(userData.holidays + userData.car + userData.laptop)],
-        backgroundColor: 'rgba(54, 162, 235, 1)',
-      }
-  ],
-};
-
-function BarChart() {
-  return <Bar className="mt-8" data={data} options={options}/>;
+export function generateChartData() {
+  const currentUser = localStorage.getItem('currentUser');
+  const userData = currentUser ? JSON.parse(localStorage.getItem(currentUser)) : null;
+  const getRandomColor = () => {
+    const availableColors = [
+      'purple', 'yellow', 'red', 'green', 'blue', 'orange', 'pink', 'brown', 'cyan', 'magenta',
+      'lime', 'indigo', 'teal', 'amber', 'deepPurple', 'lightBlue', 'deepOrange', 'blueGrey', 'lime',
+      'cyan'
+    ];
+    if (!availableColors.length) {
+      // If all colors are used, reset the availableColors array
+      availableColors.push(
+        'purple', 'yellow', 'red', 'green', 'blue', 'orange', 'pink', 'brown', 'cyan', 'magenta',
+        'lime', 'indigo', 'teal', 'amber', 'deepPurple', 'lightBlue', 'deepOrange', 'blueGrey', 'lime',
+        'cyan'
+      );
+    }
+    const randomIndex = Math.floor(Math.random() * availableColors.length);
+    const randomColor = availableColors[randomIndex];
+    // Remove the used color from the available colors array
+    availableColors.splice(randomIndex, 1);
+    return randomColor;
+  };
+  if (userData) {
+    const allIncomes = userData.incomes ? userData.incomes : [];
+    const incomeData = allIncomes.reduce((total, income) => total + income.amount, 0);
+    const budgetData = userData.budgets
+      ? userData.budgets.map(budget => ({
+          label: budget.title,
+          data: [budget.amount],
+          backgroundColor: getRandomColor(), // Adjust bar color 
+        }))
+      : [];
+    const labels = ['']; // Include budget item labels
+    const datasets = [
+      {
+        label: 'Total Income',
+        data: [incomeData],
+        backgroundColor: getRandomColor(),
+      },
+      ...budgetData,
+    ];
+    return {
+      labels,
+      datasets,
+    };
+  }
+  return {    
+    labels: [],
+    datasets: []
+  };
 }
+export default function BarChart() {
+  const [chartData, setChartData] = useState(generateChartData());
 
-export default BarChart;
+  useEffect(() => {
+    setChartData(generateChartData());
+  }, []);
+
+  return (
+    <div>
+      <h1 className="">Overall Finance Budget</h1>
+    <Bar
+      options={options}
+      data={chartData}
+    />
+    </div>
+  );
+}

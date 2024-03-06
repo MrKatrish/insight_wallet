@@ -57,7 +57,7 @@ function Home() {
   return (
     <>
       <FormTitle title='Insight Wallet' />
-      <p className='italic text-gray-400 mb-8 mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Gain a deeper understanding of your financial landscape with Insight Wallet, a powerful and intuitive finance app designed to empower you on your journey to financial well-being.</p>
       <div className="block max-w-sm mx-auto text-center">
         {/* Login Form */}
         <form onSubmit={handleLogin}>

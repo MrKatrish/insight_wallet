@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from '../components/FormTitle';
@@ -30,6 +30,17 @@ function SavingsGoals() {
     );
   };
 
+  const handleLabelTitleChange = (id, e) => {
+    const newTitle = e.target.value;
+
+    setSavingsGoals(previous => previous.map(goal => {
+      if (goal.id === id) {
+        return { ...goal, title: newTitle };
+      }
+      return goal;
+    }));
+  };
+
   const handleAddSavings = () => {
     setSavingsGoals([
       ...savingsGoals, { id: counter, title: '', amount: 0 }
@@ -50,24 +61,21 @@ function SavingsGoals() {
   return (
     <>
       <FormTitle title='Your Saving Goals:' />
+      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Whether it's a dream vacation, a new gadget, or an emergency fund. Simply enter the item or goal name, and set the target amount.</p>
       {savingsGoals.map((goal, index) => (
+        <div key={index} className="flex p-2 justify-center">
         <UserInput
           key={index}
           labelTitle={goal.title}
           labelAmount={goal.amount}
           id={goal.id}
           handleChange={handleSavingsGoalsChange}
-          handleLabelTitleChange={(id, value) => {
-            setSavingsGoals(
-              savingsGoals.map(goal =>
-                goal.id === id ? { ...goal, title: value } : goal
-              )
-            );
-          }}
+          handleLabelTitleChange={handleLabelTitleChange}
           handleDelete={(id) => {
             setSavingsGoals(savingsGoals.filter(goal => goal.id !== id));
           }}
         />
+        </div>
       ))}
       <div className='flex flex-row justify-center'>
         <FormButton onClick={handleAddSavings} title='Add New Saving Goal' />
