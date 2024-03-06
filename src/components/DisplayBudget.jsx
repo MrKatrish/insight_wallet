@@ -12,7 +12,7 @@ function DisplayBudget() {
       title: title,
       amount: parseFloat(amount) || 0
     };
-
+  
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(localStorage.getItem(currentUser));
@@ -22,9 +22,12 @@ function DisplayBudget() {
       userData.budgets.push(newBudget);
       localStorage.setItem(currentUser, JSON.stringify(userData));
     }
+  
+    // Clear input fields after submission
+    setTitle('');
+    setAmount('');
   };
   
-
   const handleSubmitIncome = () => {
     const newIncome = {
       title: titleIncome,
@@ -35,12 +38,17 @@ function DisplayBudget() {
     if (currentUser) {
       const userData = JSON.parse(localStorage.getItem(currentUser));
       if (!userData.incomes) {
-        userData.incomes = []; 
+        userData.incomes = [];
       }
-      userData.incomes.push(newIncome); 
-      localStorage.setItem(currentUser, JSON.stringify(userData)); 
+      userData.incomes.push(newIncome);
+      localStorage.setItem(currentUser, JSON.stringify(userData));
     }
+  
+    // Clear input fields after submission
+    setTitleIncome('');
+    setIncome('');
   };
+  
 
   return (
     <>
