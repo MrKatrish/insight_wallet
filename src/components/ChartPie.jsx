@@ -66,7 +66,7 @@ export const doughnutLabel = {
 
 function Chart() {
   return (
-  <div>
+  <div style={{ width: '100%', height: '100%' }}>
   <Doughnut data={generateDoughnutChartData()} plugins={[doughnutLabel]} />
   </div>
   )
