@@ -12,22 +12,20 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar text-white h-full w-90 fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 gap-4items-center justify-center p-4">
+    <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 items-center justify-center">
       {/* User Profile Section */}
-      <div  className='bg-slate-100 bg-opacity-50 rounded-xl w-64 top-0 text-center outline-6 p-10 m-8 col-span-1'>
+      <div className='bg-slate-300 bg-opacity-30 rounded-xl w-72 top-0 text-center p-10 m-8 col-span-1 mt-40'>
           <img
             src={user.profilePicture}
-            alt={user.username}
-            className="w-40 h-40 rounded-full mx-auto mb-4"
+            className="w-40 h-40 rounded-full mx-auto"
           />
-          <p className="mb-8">{user.username}</p>
-          <h2>Welcome to your dashboard!</h2>
-          <p className="mb-8 p-4">Gain comprehensive insights into your finances, review your latest transactions, and track your progress toward achieving your savings goals. </p>
+          <h2 className="mb-2 font-semibold">{user.username}</h2>
+          <h3 className="text-lg font-bold">Welcome to your dashboard!</h3>
       </div>
       
       {/* Navigation Links */}
-      <ul className="col-span-1">
-        <h3>Need to make changes?</h3>
+      <ul className="col-span-1 text-center mt-24">
+        <h3 className="mb-4">Need to make changes to your finances?</h3>
         <li>
           <Link to="/income" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
           <i className="fas fa-home mr-2"></i>Your Income
