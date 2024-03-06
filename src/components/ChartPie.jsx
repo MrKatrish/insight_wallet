@@ -42,16 +42,16 @@ const doughnutLabel = {
         //text
         ctx.save();
         ctx.textAlign = 'center';
-        ctx.font = 'bold 30px san-serif';
+        ctx.font = '50px';
         ctx.fillStyle = 'black';
         ctx.textBaseline = 'middle';
-        ctx.fillText(`Income: ${userData.salary}`, centerX, centerY);
+        ctx.fillText(`Total Income: £${userData.salary}`, centerX, centerY);
 }
 }
 
 function Chart () {
     return (
-        <Doughnut data={data} plugins={[doughnutLabel]} />
+        <Doughnut className="mt-10" data={data} plugins={[doughnutLabel]} />
     )
 }
 
