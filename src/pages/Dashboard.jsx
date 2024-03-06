@@ -35,7 +35,7 @@ const Dashboard = () => {
               <CurrencyConverter />
             </div>
 
-            {/* Tile 3 - Add Budget (Placeholder) */}
+            {/* Tile 3 - PieChar: Budget*/}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               <h2 className="text-2xl text-left">Budget</h2>
               <p className="text-left mb-2 text-gray-700">How you've budgeted your income</p>
@@ -52,6 +52,7 @@ const Dashboard = () => {
             {/* Tile 5 - Last Transactions */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               <h2 className="text-2xl text-left mb-10">Latest Transactions</h2>
+              <p className="text-left mb-2 text-gray-700">What you've been spending</p>
               <LastTransactions />
             </div>
 
