@@ -5,7 +5,7 @@ import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
-import DisplayBudget from "../components/DisplayBudget";
+import AddBudget from "../components/AddBudget";
 // add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
@@ -27,10 +27,9 @@ const Dashboard = () => {
             <CurrencyConverter />
           </div>
 
-          {/* Tile 3 - Add Budget */}
-          {/* Tile 3 - Add Budget */}
+          {/* Tile 3 - Add Budget (Placeholder) */}
           <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-            <DisplayBudget />
+            <AddBudget/>
           </div>
 
           {/* Tile 4 - Pie Chart */}
@@ -43,8 +42,9 @@ const Dashboard = () => {
             <LastTransactions />
           </div>
 
-          {/* Tile 6 - Savings Goals */}
+          {/* Tile 6 - Savings Goals (Placeholder) */}
           <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
+            {/* here add SavingsGoals componendt*/}
           </div>
         </div>
       </div>
