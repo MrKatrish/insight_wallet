@@ -13,7 +13,6 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
-  Title,
   Tooltip,
   Legend
 );
@@ -21,7 +20,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top'
+      position: 'bottom'
     },
     title: {
       display: true,
