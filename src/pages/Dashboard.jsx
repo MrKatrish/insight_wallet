@@ -71,7 +71,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <Footer />
+          <Footer className="h-full"/>
         </div>
       </div>
     </>

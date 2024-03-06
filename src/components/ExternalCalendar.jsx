@@ -12,7 +12,15 @@ const MyCalendar = () => {
 
   return (
     <div>
-      <ExternalCalendar className="bg-customPurple w-72 m-8" onChange={handleDateChange} value={date} />
+      <ExternalCalendar
+        className="bg-customPurple w-72 m-8"
+        onChange={handleDateChange}
+        value={date}
+        next2Label=">>"
+        nextLabel=">"
+        prev2Label="<<"
+        prevLabel="<"
+      />
       {/* Add any other content or styling here */}
     </div>
   );
