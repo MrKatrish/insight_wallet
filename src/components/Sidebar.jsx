@@ -29,9 +29,11 @@ const Sidebar = () => {
             <h3 className="mb-2 text-left">Welcome to your dashboard!</h3>
           </div>
       </div>
-      
+
+      <MyCalendar className="col-span-1" />
+
       {/* Navigation Links */}
-      <ul className="col-span-1 text-center mt-24">
+      <ul className="col-span-1 text-center mt-2 mb-22">
         <h3 className="mb-2 font-semibold">Need to make changes?</h3>
         <li>
           <Link to="/income" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"><GiReceiveMoney />Add new income
@@ -48,7 +50,6 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
-      <MyCalendar className="col-span-1" />
     </div>
   );
 };
