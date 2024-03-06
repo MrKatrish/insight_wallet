@@ -111,13 +111,13 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
-      <h1 className="mb-5">Currency Exchanger</h1>
-      <div className="flex items-center">
+      <div className="flex items-center mt-10 mb-10">
+
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
-          style={{ width: '300px' }}
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
+          style={{ width: '250px' }}
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -129,15 +129,18 @@ const CurrencyExchanger = () => {
           type="number"
           value={amount}
           onChange={handleAmountChange}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
+          style={{ width: '80px' }}
         />
       </div>
+
+
       <div className="flex items-center mt-4">
         <select
           value={toCurrency}
           onChange={(e) => setToCurrency(e.target.value)}
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 mr-2"
-          style={{ width: '300px' }}
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
+          style={{ width: '250px' }}
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -147,12 +150,13 @@ const CurrencyExchanger = () => {
         </select>
         <input
           type="text"
-          value={`${result} ${toCurrency}`}
+          value={`${result}`}
           readOnly
-          className="appearance-none bg-white border border-gray-400 rounded py-2 px-4 ml-2"
+          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
+          style={{ width: '80px' }}
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-10">
         <button
           onClick={handleToggle}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

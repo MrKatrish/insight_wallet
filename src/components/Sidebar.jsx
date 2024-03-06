@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import UserInput from '../components/UserInput';
 import FormTitle from '../components/FormTitle';
 import FormButton from '../components/FormButton';
+import profileImage from "../Assets/jonas-kakaroto.jpg";
+import MyCalendar from './ExternalCalendar';
+import { TbMoneybag } from "react-icons/tb";
+import { GiReceiveMoney } from "react-icons/gi";
+import { TbZoomMoney } from "react-icons/tb";
 
 function Income() {
   const navigate = useNavigate();
@@ -67,27 +72,48 @@ function Income() {
   };
 
   return (
-    <>
-      <FormTitle title='Your Income:' />
-      <p className='italic text-gray-400 mb-8 mx-4 sm:mx-8 md:mx-16 lg:mx-48 text-lg'>Welcome to the Income Input page! Here, you can enter your various income streams, such as salary, freelance work, or any additional sources of earnings.</p>
-       
-      {incomes.map((item, index) => (
-        <div key={index} className="flex p-2 justify-center">
-          <UserInput
-            labelTitle={item.title}
-            labelAmount={item.amount}
-            id={item.id}
-            handleChange={handleIncomeChange}
-            handleLabelTitleChange={handleIncomeTitleChange}
-            handleDelete={handleDelete}
+    <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-6 items-center justify-center">
+      {/* User Profile Section */}
+      <div className='bg-purple-900 bg-opacity-30 rounded-xl w-72 text-center p-2 m-8 col-span-1 grid grid-cols-2 grid-rows-1 mt-24 shadow-lg'>
+          <img
+            src={user.profilePicture}
+            className=" outline-blue-950 shadow-xl w-24 h-24 rounded-full mx-auto mb-1 mt-2 ml-2"
           />
-        </div>
-      ))}
-
-      <div className='flex flex-row justify-center'>
-        <FormButton onClick={handleAddIncomes} title='Add new income' />
-        <FormButton onClick={handleSubmit} title='Next' />
+          <div> 
+            <h2 className="mb-2 font-semibold mt-6 text-left">Hi {user.username}, </h2>
+            <h3 className="mb-2 text-left">Welcome back!</h3>
+          </div>
       </div>
+
+      {/* Vertical Line before Calendar */}
+      <div className=" border-gray-500 w-94 col-span-1"></div>
+
+      <MyCalendar className="col-span-1" />
+
+      {/* Vertical Line after Calendar */}
+      <div className=" border-gray-500 w-94 col-span-1"></div>
+
+      {/* Navigation Links */}
+      <ul className="col-span-1 text-center mt-2 mb-22 grid grid-rows-4">
+        <h3 className="mb-2 font-semibold col-span-1">Need to make changes?</h3>
+        <li className="mb-1">
+          <Link to="/income" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1"><GiReceiveMoney />Add new income
+          </Link>
+        </li>
+        <li className="mb-1">
+          <Link to="/budget" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1">
+          <TbZoomMoney className="ml-"/> Amend your budget
+          </Link>
+        </li>
+        <li className="mb-1">
+          <Link to="/savingsgoals" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1">
+          <TbMoneybag /> Set new savings goals
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
       <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
         <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
