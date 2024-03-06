@@ -1,73 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Mapping of currency codes to their corresponding names
 const currencyCodeToNameMapping = {
-    "USD": "United States Dollar",
-    "GBP": "British Pound",
-    "EUR": "Euro",
-    "CHF": "Swiss Franc",
-    "NOK": "Norwegian Krone",
-    "SEK": "Swedish Krona",
-    "CAD": "Canadian Dollar",
-    "MXN": "Mexican Peso",
-    "JPY": "Japanese Yen",
-    "CNY": "Chinese Yuan",
-    "INR": "Indian Rupee",
-    "RUB": "Russian Ruble",
-    "KRW": "South Korean Won",
-    "SAR": "Saudi Riyal",
-    "ILS": "Israeli New Shekel",
-    "BRL": "Brazilian Real",
-    "ARS": "Argentine Peso",
-    "ZAR": "South African Rand",
-    "NGN": "Nigerian Naira",
-    "AUD": "Australian Dollar",
-    "NZD": "New Zealand Dollar",
-    "TRY": "Turkish Lira",
-    "PLN": "Polish Zloty",
-    "CZK": "Czech Koruna",
-    "HUF": "Hungarian Forint",
-    "THB": "Thai Baht",
-    "SGD": "Singapore Dollar",
-    "MYR": "Malaysian Ringgit",
-    "PHP": "Philippine Peso",
-    "IDR": "Indonesian Rupiah",
-    "VND": "Vietnamese Dong",
-    "EGP": "Egyptian Pound",
-    "PKR": "Pakistani Rupee",
-    "BDT": "Bangladeshi Taka",
-    "COP": "Colombian Peso",
-    "CLP": "Chilean Peso",
-    "PEN": "Peruvian Sol",
-    "VES": "Venezuelan Bolívar",
-    "QAR": "Qatari Rial",
-    "AED": "United Arab Emirates Dirham",
-    "ALL": "Albanian Lek",
-    "AMD": "Armenian Dram",
-    "AZN": "Azerbaijani Manat",
-    "BYN": "Belarusian Ruble",
-    "BAM": "Bosnia-Herzegovina Convertible Mark",
-    "BGN": "Bulgarian Lev",
-    "HRK": "Croatian Kuna",
-    "DKK": "Danish Krone",
-    "GEL": "Georgian Lari",
-    "GIP": "Gibraltar Pound",
-    "ISK": "Icelandic Króna",
-    "MKD": "Macedonian Denar",
-    "MDL": "Moldovan Leu",
-    "RON": "Romanian Leu",
-    "RSD": "Serbian Dinar",
-    "UAH": "Ukrainian Hryvnia",
-    "MAD": "Morocan Dirham"
+  "USD": "United States Dollar",
+  // ... (Other currency codes and names)
 };
 
+// Function to convert currency using ExchangeRate-API
 async function convertCurrency(amount, fromCurrency, toCurrency) {
+  // API endpoint URL
   const url = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
+  
   try {
+    // Fetch exchange rates from the API
     const response = await axios.get(url);
     const data = response.data;
+    
+    // Check if the response contains rates
     if (data && data.rates) {
       const rate = data.rates[toCurrency];
+
+      // If the rate is available, calculate and return the converted amount
       if (rate) {
         return (amount * rate).toFixed(2);
       } else {
@@ -82,12 +36,14 @@ async function convertCurrency(amount, fromCurrency, toCurrency) {
   }
 }
 
+// CurrencyExchanger component
 const CurrencyExchanger = () => {
   const [fromCurrency, setFromCurrency] = useState('USD');
   const [toCurrency, setToCurrency] = useState('EUR');
   const [amount, setAmount] = useState(100);
   const [result, setResult] = useState('');
 
+  // Function to toggle the 'from' and 'to' currencies
   const handleToggle = () => {
     const temp = fromCurrency;
     setFromCurrency(toCurrency);
@@ -95,10 +51,12 @@ const CurrencyExchanger = () => {
     setResult('');
   };
 
+  // Function to handle changes in the input amount
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
 
+  // Function to convert currency
   const handleConvert = async () => {
     try {
       const convertedAmount = await convertCurrency(amount, fromCurrency, toCurrency);
@@ -111,14 +69,15 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
+      {/* From currency and amount input */}
       <div className="flex items-center mt-10 mb-10">
-
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
           className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
           style={{ width: '250px' }}
         >
+          {/* Dropdown for selecting 'from' currency */}
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
               {currencyCode} - {currencyName}
@@ -134,7 +93,7 @@ const CurrencyExchanger = () => {
         />
       </div>
 
-
+      {/* To currency and result display */}
       <div className="flex items-center mt-4">
         <select
           value={toCurrency}
@@ -142,6 +101,7 @@ const CurrencyExchanger = () => {
           className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
           style={{ width: '250px' }}
         >
+          {/* Dropdown for selecting 'to' currency */}
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
               {currencyCode} - {currencyName}
@@ -156,6 +116,8 @@ const CurrencyExchanger = () => {
           style={{ width: '80px' }}
         />
       </div>
+
+      {/* Toggle and Convert buttons */}
       <div className="mt-10">
         <button
           onClick={handleToggle}

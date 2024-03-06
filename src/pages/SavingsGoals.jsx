@@ -15,6 +15,7 @@ function SavingsGoals() {
 
   const [counter, setCounter] = useState(4);
 
+  // Handle change in savings goal amount
   const handleSavingsGoalsChange = (id, e) => {
     const value = e.target.value;
     let valueNumber = parseFloat(value);
@@ -30,6 +31,7 @@ function SavingsGoals() {
     );
   };
 
+  // Handle change in savings goal title
   const handleLabelTitleChange = (id, e) => {
     const newTitle = e.target.value;
 
@@ -41,6 +43,7 @@ function SavingsGoals() {
     }));
   };
 
+  // Add a new savings goal
   const handleAddSavings = () => {
     setSavingsGoals([
       ...savingsGoals, { id: counter, title: '', amount: 0 }
@@ -48,6 +51,7 @@ function SavingsGoals() {
     setCounter(counter + 1);
   };
 
+  // Handle form submission
   const handleSubmit = () => {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
