@@ -30,22 +30,22 @@ const Sidebar = () => {
           </div>
       </div>
 
-      <MyCalendar className="col-span-1" />
+      <MyCalendar className="col-span-1 rounded" />
 
       {/* Navigation Links */}
-      <ul className="col-span-1 text-center mt-2 mb-22">
-        <h3 className="mb-2 font-semibold">Need to make changes?</h3>
-        <li>
-          <Link to="/income" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md"><GiReceiveMoney />Add new income
+      <ul className="col-span-1 text-center mt-2 mb-22 grid grid-rows-4">
+        <h3 className="mb-2 font-semibold col-span-1">Need to make changes?</h3>
+        <li className="mb-1">
+          <Link to="/income" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1"><GiReceiveMoney />Add new income
           </Link>
         </li>
-        <li>
-          <Link to="/budget" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
-          <TbZoomMoney /> Amend your budget
+        <li className="mb-1">
+          <Link to="/budget" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1">
+          <TbZoomMoney className="ml-"/> Amend your budget
           </Link>
         </li>
-        <li>
-          <Link to="/savingsgoals" className="block py-2 px-4 hover:bg-black hover:bg-opacity-50 hover:rounded-md">
+        <li className="mb-1">
+          <Link to="/savingsgoals" className="block hover:bg-black hover:bg-opacity-50 hover:rounded-md col-span-1">
           <TbMoneybag /> Set new savings goals
           </Link>
         </li>
