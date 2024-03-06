@@ -17,8 +17,9 @@ const Dashboard = () => {
 
         {/* Main Content Wrapper */}
         <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
-          {/* Main Content */}
 
+          {/* Main Content */}
+          <h1 className="col-span-3 text-left mb-4">Dashboard</h1>
           <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-3 gap-4">
             {/* Tile 1 - BarChart: Finance Overview */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-2">
