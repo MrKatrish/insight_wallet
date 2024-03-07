@@ -4,12 +4,9 @@ import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
-import BudgetPie from "../components/BudgetPie";
 import DisplayBudget from "../components/DisplayBudget";
 import Navbar from "../components/Navbar";
-import SavingsGoalsDashboard from "../components/saving-goals-dashboard-card";
-// add imports for AddBudget and SavingsGoals
-
+import SavingsGoalsDashboard from "../components/SavingGoals";
 
 const Dashboard = () => {
 
