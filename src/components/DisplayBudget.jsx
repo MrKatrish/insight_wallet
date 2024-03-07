@@ -80,14 +80,14 @@ function DisplayBudget() {
           placeholder='Expenditure Title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className='border-2 border-gray-300 rounded-md p-2 mb-4'
+          className='text-md leading-10 px-5 py-1 my-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left sm:mr-2 sm:w-64 max-w-full'
         />
         <input
           type='number'
           placeholder='Expenditure Amount'
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          className='border-2 border-gray-300 rounded-md p-2 mb-4'
+          className='text-md leading-10 px-5 py-1 my-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left sm:mr-2 sm:w-64 max-w-full4'
         />
         {/* Button to add expenditure */}
         <FormButton onClick={() => handleSubmit('budget')} title='Add Expenditure' />
@@ -98,14 +98,14 @@ function DisplayBudget() {
           placeholder='Income Title'
           value={titleIncome}
           onChange={(e) => setTitleIncome(e.target.value)}
-          className='border-2 border-gray-300 rounded-md p-2 mb-4'
+          className='text-md leading-10 px-5 py-1 my-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left sm:mr-2 sm:w-64 max-w-full'
         />
         <input
           type='number'
           placeholder='Income Amount'
           value={income}
           onChange={(e) => setIncome(e.target.value)}
-          className='border-2 border-gray-300 rounded-md p-2 mb-4'
+          className='text-md leading-10 px-5 py-1 my-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left sm:mr-2 sm:w-64 max-w-full'
         />
         {/* Button to add income */}
         <FormButton onClick={() => handleSubmitIncome('income')} title='Add Income' />
