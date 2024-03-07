@@ -1,5 +1,4 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
