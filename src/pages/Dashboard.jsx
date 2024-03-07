@@ -13,7 +13,7 @@ import DisplayBudget from "../components/DisplayBudget";
 const Dashboard = () => {
   return (
     <>
-      <div className="grid grid-cols-4 grid-row-1 gap-4">
+      <div style={{ fontFamily: 'Roboto, sans-serif' }} className="grid grid-cols-4 grid-row-1 gap-4">
         {/* Sidebar */}
         <Sidebar className="col-span-1" />
 
@@ -63,15 +63,15 @@ const Dashboard = () => {
               {/* Wrapper - Savings Goals */}
               <div className="grid grid-cols-3 grid-row-1">
                 <div className="bg-orange-300 opacity-45 rounded-xl shadow-md p-4 col-span-1 mr-2">
-                  <h2 className="text-2xl text-left mb-2">savings goal 1</h2>
+                  <h2 className="text-2xl text-left mb-2">Track spending</h2>
                   {/* here add SavingsGoals component*/}
                 </div>
                 <div className="bg-green-100 opacity-45 rounded-xl shadow-md p-4 col-span-1 mr-2">
-                  <h2 className="text-2xl text-left mb-2">savings goal 2</h2>
+                  <h2 className="text-2xl text-left mb-2">Pay off debt</h2>
                   {/* here add SavingsGoals component*/}
                 </div>
                 <div className="bg-red-100  opacity-45 rounded-xl shadow-md p-4 col-span-1">
-                  <h2 className="text-2xl text-left mb-2">savings goal 3</h2>
+                  <h2 className="text-2xl text-left mb-2">Save for retirement</h2>
                   {/* here add SavingsGoals component*/}
                 </div>
               </div>
