@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-customPurple text-white flex items-center justify-center py-3">
+    <footer className="bg-customPurple text-white flex items-center justify-center py-3 w-full">
         {/* MIT License text */}
         <p className="text-sm">&copy; 2024 Insight Wallet inc. All rights reserved.</p>
         
