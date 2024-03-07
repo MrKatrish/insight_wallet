@@ -15,6 +15,7 @@ function Income() {
   const [counter, setCounter] = useState(4);
   const [totalIncome, setTotalIncome] = useState(0);
 
+  // Update totalIncome whenever incomes change
   useEffect(() => {
     const totalSum = incomes
       .map((income) => income.amount)
@@ -23,11 +24,13 @@ function Income() {
     setTotalIncome(totalSum);
   }, [incomes]);
 
+  // Add a new income item
   const handleAddIncomes = () => {
     setCounter(p => p + 1);
     setIncomes([...incomes, { id: counter, title: '', amount: 0 }]);
   };
 
+  // Handle change in income amount
   const handleIncomeChange = (id, e) => {
     const value = e.target.value;
     let valueNumber = parseFloat(value);
@@ -40,6 +43,7 @@ function Income() {
     ));
   };
 
+  // Handle change in income title
   const handleIncomeTitleChange = (id, e) => {
     const { value } = e.target;
   
@@ -52,10 +56,12 @@ function Income() {
     }));
   };
 
+  // Delete an income item
   const handleDelete = (id) => {
     setIncomes(incomes.filter((income) => income.id !== id));
   }
 
+  // Handle form submission
   const handleSubmit = () => {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
