@@ -10,6 +10,7 @@ import SavingsGoalsDashboard from "../components/saving-goals-dashboard-card";
 // add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
