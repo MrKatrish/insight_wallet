@@ -8,7 +8,6 @@ const Sidebar = () => {
     username: "John",
     profilePicture: profileImage,
   };
-
   return (
     <div className="sidebar text-white h-full w-80 fixed top-0 left-0 bg-customPurple">
       {/* User Profile Section */}
@@ -56,5 +55,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;

@@ -73,11 +73,10 @@ export const doughnutLabel = {
 // Main Chart component with Doughnut chart
 function Chart() {
   return (
-    <div>
-      <h1 className="">Overall Income</h1>
-      <Doughnut data={generateDoughnutChartData()} plugins={[doughnutLabel]} />
-    </div>
-  );
+  <div>
+  <Doughnut data={generateDoughnutChartData()} plugins={[doughnutLabel]} />
+  </div>
+  )
 }
 
 export default Chart;
