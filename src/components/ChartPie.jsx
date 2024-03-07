@@ -65,9 +65,19 @@ export const doughnutLabel = {
 };
 
 function Chart() {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+  }
+
+  const chartStyle = {
+    height: '400px',
+    width: '100%',
+  }
+
   return (
-  <div>
-  <Doughnut data={generateDoughnutChartData()} plugins={[doughnutLabel]} />
+  <div className='h-100 flex align-center justify-center'>
+  <Doughnut data={generateDoughnutChartData()} options={options} plugins={[doughnutLabel]} style={chartStyle} />
   </div>
   )
 }
