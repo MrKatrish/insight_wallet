@@ -62,7 +62,7 @@ export const doughnutLabel = {
     // Text
     ctx.save();
     ctx.textAlign = 'center';
-    ctx.font = 'bold 20px san-serif';
+    ctx.font = '10px';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
     ctx.fillText(`Total Income: ${generateDoughnutChartData().datasets[0].data.reduce((acc, val) => acc + val, 0)}`, centerX, centerY);
@@ -72,9 +72,19 @@ export const doughnutLabel = {
 
 // Main Chart component with Doughnut chart
 function Chart() {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+  }
+
+  const chartStyle = {
+    height: '400px',
+    width: '100%',
+  }
+
   return (
-  <div>
-  <Doughnut data={generateDoughnutChartData()} plugins={[doughnutLabel]} />
+  <div className='h-100 flex align-center justify-center'>
+  <Doughnut data={generateDoughnutChartData()} options={options} plugins={[doughnutLabel]} style={chartStyle} />
   </div>
   )
 }

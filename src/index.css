@@ -8,12 +8,14 @@
     --purple: #30105a;
 }
 
+#root {
+  padding: 0;
+}
+
 body {
   margin: 0;
-  display: flex;
+  padding: 0;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   color: black;
   background-color: var(--light-pink);
 }
@@ -21,4 +23,8 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.sideBar {
+  pointer-events: none;
 }

@@ -69,13 +69,11 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
-      {/* From currency and amount input */}
-      <div className="flex items-center mt-10 mb-10">
+      <div className="flex flex-col md:flex-row p-2 justify-center items-center">
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
-          style={{ width: '250px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left mb-2 md:mb-0 md:mr-2 md:w-48 max-w-full"
         >
           {/* Dropdown for selecting 'from' currency */}
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
@@ -88,18 +86,16 @@ const CurrencyExchanger = () => {
           type="number"
           value={amount}
           onChange={handleAmountChange}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
-          style={{ width: '80px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left w-full md:w-auto max-w-full"
         />
       </div>
 
-      {/* To currency and result display */}
-      <div className="flex items-center mt-4">
+
+      <div className="flex flex-col md:flex-row p-2 justify-center items-center">
         <select
           value={toCurrency}
           onChange={(e) => setToCurrency(e.target.value)}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
-          style={{ width: '250px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left mb-2 md:mb-0 md:mr-2 md:w-48 max-w-full"
         >
           {/* Dropdown for selecting 'to' currency */}
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
@@ -112,8 +108,7 @@ const CurrencyExchanger = () => {
           type="text"
           value={`${result}`}
           readOnly
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
-          style={{ width: '80px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left w-full md:w-auto max-w-full"
         />
       </div>
 
