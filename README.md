@@ -50,30 +50,30 @@ This will launch the development server. Open your browser and visit http://loca
 
 ## Features
 
-1. Navigate Through the App:
+1. **Navigate Through the App:**
 
-- Home: The landing page with a brief introduction to Insight Wallet.
-- Income: Input your income streams and details.
-- Budget: Budget your expenditures and allocate funds to different categories.
-- Savings Goals: Set and track your savings goals for various items or objectives.
-- Dashboard: View an overview of your financial status and transactions.
+- **Home:** The landing page with a brief introduction to Insight Wallet.
+- **Income:** Input your income streams and details.
+- **Budget:** Budget your expenditures and allocate funds to different categories.
+- **Savings Goals:** Set and track your savings goals for various items or objectives.
+- **Dashboard:** View an overview of your financial status and transactions.
 
-2. Input Income:
+2. **Input Income:**
 
 - On the Income page, enter your various income sources and amounts.
 - Click the "Next" button to proceed to the budgeting section.
 
-3. Budget Your Expenditure:
+3. **Budget Your Expenditure:**
 
 - Allocate funds to different categories such as rent, bills, groceries, savings, and investments.
 - Add new budget items as needed.
 - The total budget amount is displayed at the bottom.
 
-4. Set Savings Goals:
+4. **Set Savings Goals:**
 - On the Savings Goals page, enter items or goals you're saving for and their target amounts.
 - Click the "Next" button to proceed.
 
-5. View Dashboard:
+5. **View Dashboard:**
 - On the Dashboard, get an overview of your financial situation, including your savings, budget status, and recent transactions.
 
 
