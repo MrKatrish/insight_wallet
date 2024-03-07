@@ -12,3 +12,8 @@
   .container {
     display: flex;
   }
+
+  .sideBar {
+    pointer-events: none;
+  }
+

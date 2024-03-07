@@ -5,8 +5,10 @@ import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
+import BudgetPie from "../components/BudgetPie";
 import DisplayBudget from "../components/DisplayBudget";
 // add imports for AddBudget and SavingsGoals
+
 
 const Dashboard = () => {
   return (
@@ -16,14 +18,15 @@ const Dashboard = () => {
         <Sidebar className="col-span-1" />
 
         {/* Main Content Wrapper */}
-        <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
+        <div className="sideBar main-content-wrapper fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
 
           {/* Main Content */}
           <h1 className="col-span-3 text-left mb-4">Dashboard</h1>
           <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-3 gap-4">
             {/* Tile 1 - BarChart: Finance Overview */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-2">
-              <h2 className="text-2xl text-left mb-2">Financial Overview</h2>
+              <h2 className="text-2xl text-left">Financial Overview</h2>
+              <p className="text-left mb-2 text-gray-700">Income versus budgeted spend</p>
               <BarChart />
             </div>
 
@@ -33,21 +36,24 @@ const Dashboard = () => {
               <CurrencyConverter />
             </div>
 
-            {/* Tile 3 - Add Budget (Placeholder) */}
+            {/* Tile 3 - PieChar: Budget*/}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-              <h2 className="text-2xl text-left mb-2">Current Budget</h2>
+              <h2 className="text-2xl text-left">Budget</h2>
+              <p className="text-left mb-2 text-gray-700">How you have budgeted your income</p>
               <DisplayBudget/>
             </div>
 
-            {/* Tile 4 - PieChart: Budget */}
+            {/* Tile 4 - PieChart: Income */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
-              <h2 className="text-2xl text-left mb-2">Your Monthly Budget</h2>
+              <h2 className="text-2xl text-left">Income</h2>
+              <p className="text-left mb-2 text-gray-700">Sources of income</p>
               <Chart />
             </div>
 
             {/* Tile 5 - Last Transactions */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-1">
               <h2 className="text-2xl text-left mb-10">Latest Transactions</h2>
+              <p className="text-left mb-2 text-gray-700">What you've been spending</p>
               <LastTransactions />
             </div>
 
