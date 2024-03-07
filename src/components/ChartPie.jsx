@@ -56,7 +56,7 @@ export const doughnutLabel = {
     //text
     ctx.save();
     ctx.textAlign = 'center';
-    ctx.font = 'bold 20px san-serif';
+    ctx.font = '10px';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
     ctx.fillText(`Total Income: ${generateDoughnutChartData().datasets[0].data.reduce((acc, val) => acc + val, 0)}`, centerX, centerY);

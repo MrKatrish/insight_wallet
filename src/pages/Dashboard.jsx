@@ -4,10 +4,12 @@ import Chart from "../components/ChartPie";
 import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
+import BudgetPie from "../components/BudgetPie";
 import DisplayBudget from "../components/DisplayBudget";
 import Navbar from "../components/Navbar";
 import SavingsGoalsDashboard from "../components/saving-goals-dashboard-card";
 // add imports for AddBudget and SavingsGoals
+
 
 const Dashboard = () => {
 
@@ -48,6 +50,7 @@ const Dashboard = () => {
             {/* Tile 5 - Last Transactions */}
             <div className="bg-white rounded-xl shadow-md p-4 col-auto">
               <h2 className="text-2xl text-left mb-10">Latest Transactions</h2>
+              <p className="text-left mb-2 text-gray-700">What you've been spending</p>
               <LastTransactions />
             </div>
 
