@@ -4,7 +4,7 @@ export default function UserInput({labelTitle, labelAmount, handleChange, handle
     return (
         <>
             <div className="flex p-2 justify-center">
-                <input type="text" className="text-lg font-medium leading-10 px-10 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-40 bg-white rounded-3xl text-center" placeholder="Title" value={labelTitle} onChange={(e) => handleLabelTitleChange(id, e)}></input>
+                <input type="text" className="text-lg font-medium leading-10 px-8 py-2 mx-5 border-0 ring-1 ring-inset ring-gray-300 w-40 bg-white rounded-3xl text-center" placeholder="Title" value={labelTitle} onChange={(e) => handleLabelTitleChange(id, e)}></input>
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                         <span className="text-gray-500 sm:text-md">£</span>
@@ -13,12 +13,6 @@ export default function UserInput({labelTitle, labelAmount, handleChange, handle
                 </div>
                 <button onClick={() => handleDelete(id)} className="text-sm font-medium border-0 w-10 h-10 px-2 mx-5 mt-2 ring-1 ring-inset ring-gray-300 rounded-3xl bg-gray-100 text-gray-400">X</button>
             </div>
-            <button
-                onClick={() => handleDelete(id)}
-                className="text-sm font-medium border-0 px-4 sm:px-5 py-3 mx-2 sm:mx-5 ring-1 ring-inset ring-gray-300 rounded-3xl bg-gray-100 text-gray-400 mt-2 sm:mt-0"
-            >
-                X
-            </button>
         </>
     );
 }

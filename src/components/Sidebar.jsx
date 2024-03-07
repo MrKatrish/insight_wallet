@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import profileImage from "../Assets/jonas-kakaroto.jpg"; // Import the profile picture
 import MyCalendar from './ExternalCalendar';
 
-
 const Sidebar = () => {
   const user = {
     username: "John",
     profilePicture: profileImage,
   };
-
   return (
     <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 items-center justify-center">
       {/* User Profile Section */}

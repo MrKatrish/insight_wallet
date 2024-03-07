@@ -81,14 +81,14 @@ export function generateChartData() {
   };
 }
 export default function BarChart() {
+  const currentUser = localStorage.getItem('currentUser');
   const [chartData, setChartData] = useState(generateChartData());
 
   useEffect(() => {
     setChartData(generateChartData());
-  }, []);
+  }, [currentUser]);
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
     <Bar
       options={options}
       data={chartData}
