@@ -89,7 +89,6 @@ export default function BarChart() {
   }, [currentUser]);
 
   return (
-    <div>
     <Bar
       options={options}
       data={chartData}

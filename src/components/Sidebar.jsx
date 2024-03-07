@@ -14,15 +14,19 @@ const Sidebar = () => {
     profilePicture: profileImage,
   };
   return (
-    <div className="sidebar text-white h-full w-80 fixed top-0 left-0 bg-customPurple">
+    <div className=" text-white h-full fixed top-0 left-0 bg-customPurple grid grid-cols-1 grid-rows-3 items-center justify-center">
       {/* User Profile Section */}
-      <div className="p-4">
+      <div className=" sm:w-72 bg-purple-900 bg-opacity-30 rounded-xl w-72 text-center p-2 m-8 col-span-1 grid grid-cols-2 grid-rows-1 mt-24 shadow-lg">
         <img
           src={user.profilePicture}
-          alt={user.username}
-          className="w-40 h-40 rounded-full mx-auto py-3 px-1"
+          className=" outline-blue-950 shadow-xl w-24 h-24 rounded-full mx-auto mt-2 ml-2 mr-4"
         />
-        <p className="mb-8">Welcome back {user.username}!</p>
+        <div>
+          <h2 className="mb-2 font-semibold mt-6 text-left">
+            Hi {user.username},{" "}
+          </h2>
+          <h3 className="mb-2 text-left">Welcome back!</h3>
+        </div>
       </div>
 
       {/* Navigation Links */}
@@ -50,4 +54,5 @@ const Sidebar = () => {
     </div>
   );
 };
+
 export default Sidebar;
