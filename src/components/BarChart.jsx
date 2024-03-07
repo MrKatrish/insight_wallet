@@ -4,7 +4,6 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
-  Title,
   Tooltip,
   Legend,
 } from 'chart.js';
@@ -89,7 +88,7 @@ export default function BarChart() {
   }, [currentUser]);
 
   return (
-    <div>
+    <div className='h-full'>
     <Bar
       options={options}
       data={chartData}
