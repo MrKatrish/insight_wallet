@@ -93,11 +93,11 @@ A utility-first CSS framework for rapidly building modern designs.
 
 [Our Working App - Click here!](https://insightwallet.netlify.app/)
 
-![Homepage](src/assets/Homepage.png)
-![Income](src/assets/Income.png)
-![Budget](src/assets/Budget.png)
-![SavingsGoals](src/assets/SavingsGoals.png)
-![Dashboard](src/assets/Dashboard.png)
+![Homepage](src/Assets/Homepage.png)
+![Income](src/Assets/Income.png)
+![Budget](src/Assets/Budget.png)
+![SavingsGoals](src/Assets/SavingsGoals.png)
+![Dashboard](src/Assets/Dashboard.png)
 
 ## Contributors
 
