@@ -6,6 +6,7 @@ import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
 import DisplayBudget from "../components/DisplayBudget";
 import Navbar from "../components/Navbar";
+import SavingsGoalsDashboard from "../components/saving-goals-dashboard-card";
 // add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
@@ -52,21 +53,7 @@ const Dashboard = () => {
             {/* Tile 6 - Savings Goals (Placeholder) */}
             <div className="bg-white rounded-xl shadow-md p-4 col-auto">
               <h2 className="text-2xl text-left mb-10">Savings Progress</h2>
-              {/* Wrapper - Savings Goals */}
-              <div className="grid grid-cols-3 grid-row-1">
-                <div className="bg-orange-300 opacity-45 rounded-xl shadow-md p-4 col-span-1 mr-2">
-                  <h2 className="text-2xl text-left mb-2">savings goal 1</h2>
-                  {/* here add SavingsGoals component*/}
-                </div>
-                <div className="bg-green-100 opacity-45 rounded-xl shadow-md p-4 col-span-1 mr-2">
-                  <h2 className="text-2xl text-left mb-2">savings goal 2</h2>
-                  {/* here add SavingsGoals component*/}
-                </div>
-                <div className="bg-red-100  opacity-45 rounded-xl shadow-md p-4 col-span-1">
-                  <h2 className="text-2xl text-left mb-2">savings goal 3</h2>
-                  {/* here add SavingsGoals component*/}
-                </div>
-              </div>
+              <SavingsGoalsDashboard />
             </div>
           </div>
         </div>

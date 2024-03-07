@@ -12,7 +12,7 @@ function LastTranctions() {
 
       
         <>
-        <div className=" grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
+        <div className="grid grid-cols-3 grid-rows-1 mb-4 p-2 rounded-xl border shadow-md bg-slate-100 border-gray-300">
           
           <AiOutlineShoppingCart className="w-6 h-6 mr-2 col-span-1" />
           <span className="text-lg font-medium col-span-1">Tesco</span>

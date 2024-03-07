@@ -15,11 +15,10 @@ function SavingsGoalsDashboard() {
 
   return (
     <div>
-      <h2>Saving Goals Dashboard</h2>
       {savingsGoals.map(goal => (
-        <div key={goal.id} className="card">
-          <h3>{goal.title}</h3>
-          <p>Amount: {goal.amount}</p>
+        <div key={goal.id} className="bg-pink-100 opacity-45 rounded-xl shadow-md mr-2 mb-4 p-2 border border-gray-300">
+          <h3 className='text-lg font-medium my-2'>{goal.title}</h3>
+          <p className='mb-2'>Amount: £ {goal.amount}</p>
         </div>
       ))}
     </div>
