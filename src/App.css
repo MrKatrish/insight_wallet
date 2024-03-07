@@ -2,6 +2,7 @@ body {
     background-color: var(--light-pink);
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 html, body {
