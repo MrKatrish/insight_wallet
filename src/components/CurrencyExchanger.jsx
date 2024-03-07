@@ -111,13 +111,11 @@ const CurrencyExchanger = () => {
 
   return (
     <div>
-      <div className="flex items-center mt-10 mb-10">
-
+      <div className="flex flex-col sm:flex-row p-2 justify-center items-center">
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
-          style={{ width: '250px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left mb-2 sm:mb-0 sm:mr-2 sm:w-48 max-w-full"
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -129,18 +127,16 @@ const CurrencyExchanger = () => {
           type="number"
           value={amount}
           onChange={handleAmountChange}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
-          style={{ width: '80px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left w-full sm:w-auto max-w-full"
         />
       </div>
 
 
-      <div className="flex items-center mt-4">
+      <div className="flex flex-col sm:flex-row p-2 justify-center items-center">
         <select
           value={toCurrency}
           onChange={(e) => setToCurrency(e.target.value)}
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left h-12 "
-          style={{ width: '250px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left mb-2 sm:mb-0 sm:mr-2 sm:w-48 max-w-full"
         >
           {Object.entries(currencyCodeToNameMapping).map(([currencyCode, currencyName]) => (
             <option key={currencyCode} value={currencyCode}>
@@ -152,8 +148,7 @@ const CurrencyExchanger = () => {
           type="text"
           value={`${result}`}
           readOnly
-          className="text-md font-medium leading-10 px-4 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-center h-12 ml-4 "
-          style={{ width: '80px' }}
+          className="text-md font-medium leading-10 px-5 py-1 border-0 ring-1 ring-inset ring-gray-300 bg-white rounded-3xl text-left w-full sm:w-auto max-w-full"
         />
       </div>
       <div className="mt-10">
