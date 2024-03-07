@@ -6,21 +6,20 @@ import CurrencyConverter from "../components/CurrencyExchanger";
 import BarChart from "../components/BarChart";
 import LastTransactions from "../components/LastTransactions";
 import DisplayBudget from "../components/DisplayBudget";
+import Navbar from "../components/Navbar";
 // add imports for AddBudget and SavingsGoals
 
 const Dashboard = () => {
   return (
     <>
-      <div className="grid grid-cols-4 grid-row-1 gap-4">
-        {/* Sidebar */}
-        <Sidebar className="col-span-1" />
-
-        {/* Main Content Wrapper */}
-        <div className="fixed overflow-x-hidden overflow-y-auto top-0 left-0 w-full h-full p-10 pl-96 col-span-3">
-
+      <div className="flex flex-col h-screen w-screen">
+      <Navbar />
+      {/* Main Content Wrapper */}
+      <div className="flex-grow flex items-center justify-center">
+        <div className="p-10">
           {/* Main Content */}
-          <h1 className="col-span-3 text-left mb-4">Dashboard</h1>
-          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-3 grid-rows-3 gap-4">
+          <h1 className="text-left mb-4">Dashboard</h1>
+          <div className="bg-white bg-opacity-50 rounded-xl p-10 grid grid-cols-2 grid-rows-3 gap-4">
             {/* Tile 1 - BarChart: Finance Overview */}
             <div className="bg-white rounded-xl shadow-md p-4 col-span-2">
               <h2 className="text-2xl text-left mb-2">Financial Overview</h2>
@@ -71,9 +70,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
           <Footer className="h-full"/>
         </div>
+      </div>
+
       </div>
     </>
   );

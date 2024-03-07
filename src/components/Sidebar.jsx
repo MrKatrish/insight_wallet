@@ -8,11 +8,12 @@ import MyCalendar from './ExternalCalendar';
 import { TbMoneybag } from "react-icons/tb";
 import { GiReceiveMoney } from "react-icons/gi";
 import { TbZoomMoney } from "react-icons/tb";
-
+import UserBadge from '../components/UserBadge';
 
 
 function Income() {
   const navigate = useNavigate();
+}
 
 const Sidebar = () => {
 
@@ -53,12 +54,7 @@ const Sidebar = () => {
         </li>
       </ul>
       <UserBadge username={user.username} profilePicture={user.profilePicture} />
-      
-      <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
-        <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
-        <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {totalIncome.toFixed(2)}</label>
       </div>
-    </div>
 
 
 
