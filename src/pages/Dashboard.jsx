@@ -12,7 +12,7 @@ import Navbar from "../components/Navbar";
 const Dashboard = () => {
   return (
     <>
-      <div className="flex flex-col h-screen w-screen">
+      <div className="flex flex-col min-h-screen w-screen">
       <Navbar />
       {/* Main Content Wrapper */}
       <div className="flex-grow flex items-center justify-center">
@@ -70,11 +70,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <Footer className="h-full"/>
         </div>
       </div>
-
       </div>
+      <Footer className="h-full"/>
     </>
   );
 };

@@ -1,27 +1,24 @@
 import React from 'react';
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import '../styles/footer.css'; // Import the CSS file
 
 const Footer = () => {
   return (
-    <footer className="footer py-6">
-      <div className="container footerb mx-auto flex justify-between items-center">
+    <footer className="bg-customPurple text-white flex items-center justify-center py-3">
         {/* MIT License text */}
         <p className="text-sm">&copy; 2024 Insight Wallet inc. All rights reserved.</p>
         
         {/* Social icons */}
-        <div className="flex space-x-4">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className=" social p-2 hover:border-blue-400 transition duration-300">
+        <div className="flex space-x-4 mx-5">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:border-blue-400 transition duration-300">
             <FaGithub />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social  p-2 hover:border-blue-400 transition duration-300">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:border-blue-400 transition duration-300">
             <FaTwitter />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className=" social p-2 hover:border-blue-400 transition duration-300">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:border-blue-400 transition duration-300">
             <FaLinkedin />
           </a>
         </div>
-      </div>
     </footer>
   );
 };
