@@ -22,6 +22,7 @@ function Home() {
     e.preventDefault();
     let hasError = false;
   
+    // Validate username
     if (!username.trim()) {
       setError(prev => ({ ...prev, username: true }));
       hasError = true;
@@ -29,6 +30,7 @@ function Home() {
       setError(prev => ({ ...prev, username: false }));
     }
   
+    // Validate password
     if (!password.trim()) {
       setError(prev => ({ ...prev, password: true }));
       hasError = true;
@@ -38,6 +40,7 @@ function Home() {
   
     if (hasError) return;
 
+    // Check if username and password match
     const userData = JSON.parse(localStorage.getItem(username));
 
     if (userData && userData.password === password) {
@@ -54,16 +57,19 @@ function Home() {
 
     let hasError = false;
 
+    // Validate new username
     if (!newUsername) {
       setNewUsernameEmpty(true);
       hasError = true
     } 
     
+    // Validate new email
     if (!newEmail) {
       setNewPasswordEmpty(true);
       hasError = true;
     }
     
+    // Validate new password
     if (!newPassword) {
       setNewEmailEmpty(true);
       hasError = true;
@@ -73,6 +79,7 @@ function Home() {
       return;
     }
 
+    // Create a new account and store it in local storage
     const account = { username: newUsername, password: newPassword, email: newEmail, incomes: [], budgets: [], savingsGoals: [] };
     localStorage.setItem(newUsername, JSON.stringify(account));
     localStorage.setItem('currentUser', newUsername);

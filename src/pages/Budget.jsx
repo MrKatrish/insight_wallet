@@ -16,6 +16,7 @@ function Budget() {
   const [totalBudget, setTotalBudget] = useState(0);
 
   useEffect(() => {
+    // Calculate the total budget whenever budgets change
     const totalSum = budgets
       .map(budget => parseFloat(budget.amount))
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
@@ -23,11 +24,13 @@ function Budget() {
   }, [budgets]);
 
   const handleAddBudgets = () => {
+    // Add a new budget item
     setCounter(prevCounter => prevCounter + 1);
     setBudgets(previous => [...previous, { id: counter, title: '', amount: 0 }]);
   };
 
   const handleBudgetChange = (id, e) => {
+    // Update the amount of a budget item
     const value = e.target.value;
     setBudgets(budgets.map(budget => {
       if (budget.id === id) {
@@ -38,6 +41,7 @@ function Budget() {
   };
 
   const handleSubmit = () => {
+    // Save the budgets to local storage and navigate to the next page
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(localStorage.getItem(currentUser));
@@ -48,6 +52,7 @@ function Budget() {
   };
 
   const handleBudgetTitleChange = (id, e) => {
+    // Update the title of a budget item
     const newTitle = e.target.value;
   
     setBudgets(previous => previous.map(budget => {
@@ -59,6 +64,7 @@ function Budget() {
   };
 
   const handleDelete = id => {
+    // Delete a budget item
     setBudgets(previous => previous.filter(budget => budget.id !== id));
   };
 
@@ -69,6 +75,7 @@ function Budget() {
 
       {budgets.map((item, index) => (
         <div key={index} className="flex p-2 justify-center">
+          {/* Render UserInput component for each budget item */}
           <UserInput
             labelTitle={item.title}
             labelAmount={item.amount}
@@ -81,11 +88,14 @@ function Budget() {
       ))}
 
       <div className='flex flex-row justify-center'>
+        {/* Button to add a new budget item */}
         <FormButton onClick={handleAddBudgets} title='Add new budget item' />
+        {/* Button to submit the budgets and navigate to the next page */}
         <FormButton onClick={handleSubmit} title='Next' />
       </div>
 
       <div className='flex flex-col sm:flex-row p-2 justify-center items-center'>
+        {/* Display total budget */}
         <label className="text-lg font-medium leading-10 px-4 sm:px-6 py-2 sm:my-2 sm:mx-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-48 bg-white rounded-3xl">Total</label>
         <label className="text-lg font-medium leading-10 py-2 border-0 ring-1 ring-inset ring-customPurple w-full sm:w-64 bg-white rounded-3xl mt-2 sm:mt-0">£ {typeof totalBudget === 'number' ? totalBudget.toFixed(2) : '0.00'}</label>
       </div>

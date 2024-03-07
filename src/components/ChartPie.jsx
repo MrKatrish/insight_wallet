@@ -2,14 +2,17 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import React from 'react';
 
+// Registering Chart.js elements and plugins
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const generateDoughnutChartData = () => {
+// Function to generate random colors for the doughnut chart
+const generateDoughnutChartData = () => {
   const currentUser = localStorage.getItem('currentUser');
   const userData = currentUser ? JSON.parse(localStorage.getItem(currentUser)) : null;
 
   const incomeData = userData && userData.incomes ? userData.incomes : [];
 
+  // Array of available colors for the doughnut chart
   const availableColors = [
     'red', 'blue', 'yellow', 'green', 'purple',
     'orange', 'pink', 'brown', 'teal', 'cyan',
@@ -17,6 +20,7 @@ export const generateDoughnutChartData = () => {
     'indigo', 'violet', 'turquoise', 'magenta', 'gold',
   ];
 
+  // Function to get a random color from the available colors
   const getRandomColor = () => {
     if (availableColors.length === 0) {
       // If all colors are used, reset the availableColors array
@@ -32,6 +36,7 @@ export const generateDoughnutChartData = () => {
     return availableColors.splice(randomIndex, 1)[0];
   };
 
+  // Doughnut chart data
   const doughnutData = {
     labels: incomeData.map(income => income.title),
     datasets: [
@@ -46,6 +51,7 @@ export const generateDoughnutChartData = () => {
   return doughnutData;
 };
 
+// Plugin for displaying the total income in the center of the doughnut chart
 export const doughnutLabel = {
   id: 'doughnutLabel',
   afterDatasetsDraw(chart, args, plugins) {
@@ -53,7 +59,7 @@ export const doughnutLabel = {
     const centerX = chart.getDatasetMeta(0).data[0].x;
     const centerY = chart.getDatasetMeta(0).data[0].y;
 
-    //text
+    // Text
     ctx.save();
     ctx.textAlign = 'center';
     ctx.font = '10px';
@@ -64,6 +70,7 @@ export const doughnutLabel = {
   },
 };
 
+// Main Chart component with Doughnut chart
 function Chart() {
   const options = {
     responsive: true,
