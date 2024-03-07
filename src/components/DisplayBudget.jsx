@@ -38,6 +38,8 @@ function DisplayBudget() {
     // Clear input fields after submission
     setTitle('');
     setAmount('');
+
+    window.location.reload();
   };
   
   // Function to handle submission of income
@@ -68,6 +70,7 @@ function DisplayBudget() {
     // Clear input fields after submission
     setTitleIncome('');
     setIncome('');
+    window.location.reload();
   };
   
 
